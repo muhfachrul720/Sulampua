@@ -131,7 +131,7 @@ ul li {
 .cs-navbar {
 	/* background-color: rgba(0, 0, 0, 0.5); */
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-	position: fixed !important;
+	position: fixed;
 	margin: auto;
 	width: 100%;
 	z-index: 2;
@@ -400,4 +400,71 @@ ul li {
 
 .footer ul li a {
 	color: rgb(255, 255, 255) !important;
+}
+
+/* Data Kasulampua */
+.sect-data_ks table th,
+.sect-data_ks table td,
+.sect-indikator_ks table th,
+.sect-indikator_ks table td {
+	padding: 8px 0px;
+}
+
+.sect-data_ks table td:nth-child(1),
+.sect-indikator_ks table td {
+	padding: 8px 16px;
+	/* font-weight: 600; */
+	font-size: 15px;
+	cursor: pointer;
+	text-align: justify;
+}
+
+.sect-data_ks table th,
+.sect-indikator_ks table th {
+	text-align: center;
+	background-color: rgb(244, 164, 96);
+	color: rgb(255, 255, 255);
+}
+
+.sect-data_ks table td:nth-child(2) {
+	text-align: center;
+	font-size: 14px;
+}
+
+.sect-data_ks table tr:nth-child(odd),
+.sect-indikator_ks table tr:nth-child(even) {
+	background-color: #eff0f1;
+}
+
+.sect-data_ks ul li {
+	padding: 8px 0px;
+	padding-left: 20px;
+	margin-left: -4px;
+	cursor: pointer;
+	transition: 0.1s ease;
+	border-left: solid 4px #eff0f1;
+}
+
+.sect-data_ks ul li:hover {
+	border-left: solid 4px rgb(244, 164, 96);
+}
+
+.sect-data_ks ul {
+	border-left: solid 4px #eff0f1;
+}
+
+.sect-indikator_ks table td {
+	font-size: 12px;
+}
+
+.sect-indikator_ks table td:nth-child(1) {
+	font-weight: bold;
+}
+
+.sect-data_ks span {
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	font-weight: bold;
+	background-color: rgb(244, 164, 96);
 }
