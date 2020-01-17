@@ -1,0 +1,64 @@
+/* Testing */
+.bg-color {
+	/* background-color: aqua; */
+	width: 100%;
+}
+
+/* Infografis */
+.sect-infografis {}
+
+.sect-infografis h1 {
+	line-height: 1.1;
+	margin-bottom: 24px;
+	font-size: 100px;
+	font-family: AvenirBlack;
+}
+
+.sect-infografis .info-y-pad {
+	padding: 4px 0px;
+}
+
+.sect-infografis .info-x-pad {
+	padding: 0px 4px;
+}
+
+.sect-infografis .info-img-height {
+	width: 100%;
+	height: 100%;
+}
+
+.sect-infografis .hg-sm {
+	height: 180px;
+}
+
+.sect-infografis .hg-md {
+	height: 368px;
+}
+
+.sect-infografis .info-img-cont {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.sect-infografis .info-img-cont img {
+	position: absolute;
+	width: 200%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.sect-infografis>div:first-of-type>div:first-of-type::after {
+	background-color: rgb(244, 164, 96);
+	position: absolute;
+	content: "";
+	width: 250px;
+	height: 8px;
+	z-index: 2;
+}
+
+.sect-infografis>div:first-of-type>div:first-of-type {
+	padding-bottom: 24px;
+}

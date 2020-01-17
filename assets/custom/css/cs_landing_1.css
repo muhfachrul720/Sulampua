@@ -32,8 +32,8 @@ ul li {
 
 /* Font */
 @font-face {
-	font-family: Avenir;
-	src: url(../../font/AvenirLTStd-Heavy.otf);
+	font-family: AvenirBlack;
+	src: url(../../font/AvenirLTStd-Black.otf);
 }
 
 @font-face {
@@ -41,8 +41,13 @@ ul li {
 	src: url(../../font/CinzelDecorative-Regular.otf);
 }
 
+@font-face {
+	font-family: MatenBL;
+	src: url(../../font/MATENBL.TTF);
+}
+
 .avenir-font {
-	font-family: Avenir;
+	font-family: AvenirBlack;
 }
 
 /* Universal Class */

@@ -16,7 +16,7 @@
                    <th width="50%">Tahun Data</th>
                </tr>
                <tr>
-                   <td>Gini Rasio September</td>
+                   <td><a href="<?=base_url()?>public_/data/tampil_data">Gini Rasio September</a></td>
                    <td>2015, 2016, 2017, 2018, 2019<td>
                </tr>
                <tr>

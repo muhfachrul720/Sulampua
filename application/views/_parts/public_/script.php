@@ -1,6 +1,7 @@
 <script src="<?= base_url()?>assets/js/jquery/jquery.min.js"></script>
 <script src="<?= base_url()?>assets/js/bootstrap.min.js"></script>
 <script src="<?= base_url()?>assets/js/chartjs/Chart.js"></script>
+
 <script>
 	// Init var
 	var trigger1 = 0;

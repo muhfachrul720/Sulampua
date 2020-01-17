@@ -24,7 +24,7 @@
                         <a class="nav-link mx-3 cs-btn" href="<?=base_url('public_/data')?>">Data Kasulampua</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link mx-3 cs-btn" href="#">Infografis</a>
+                        <a class="nav-link mx-3 cs-btn" href="<?=base_url('public_/infografis')?>">Infografis</a>
                     </li>
                 </ul>
                 <form class="form-inline ml-auto">
