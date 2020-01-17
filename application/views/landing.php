@@ -159,7 +159,7 @@
 						</div>
 					</div>
 					<div class="col-lg-7 chart-bar">
-						<canvas id="myChart"></canvas>
+						<canvas id="myChart1"></canvas>
 					</div>
 				</div>
 			</div>

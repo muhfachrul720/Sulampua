@@ -30,6 +30,10 @@ ul li {
 	text-align: center;
 }
 
+.active-tab {
+	border-left: solid 4px rgb(244, 164, 96) !important;
+}
+
 /* Font */
 @font-face {
 	font-family: AvenirBlack;

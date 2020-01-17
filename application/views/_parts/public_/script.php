@@ -52,62 +52,16 @@
 		}
 	});
 
-	// Chart 1 js
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var myChart = new Chart(ctx, {
-		type : 'bar',
-		data : {
-			labels : ["Kalimantan", "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Selatan", "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat", "Maluku", "Papua", "Papua Barat"],
-			datasets : [{
-				label : '# of Votes',
-				data : [12, 9, 3, 23 ,2 , 3, 2, 3, 4, 5, 6, 7,],
-				backgroundColor : [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor : [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth : 1
-			}]	
-		},
-		options : {
-			legend :{
-				display : false
-			},
-			scales: {
-				xAxes: [{
-					gridLines: {
-						display:false
-					},
-					stacked : false,
-					begitAtZero : true,
-					ticks : {
-						autoSkip:false,
-						maxRotation: 90,
-						minRotation: 90
-					}
-				}],
-				yAxes: [{
-					gridLines: {
-						display:false
-					}   
-				}]
-			}
-		}
+	// Active tab at Halaman Data
+	$('.data-tab').on('click', function(e){
+		$('.data-tab').not(this).removeClass("active-tab");
+		$(this).toggleClass("active-tab");
 	});
 
-	var ctx = document.getElementById("myChart2").getContext('2d');
-	var myChart = new Chart(ctx, {
+	// Chart JS With Looping
+	for(var i=1; i<=$('.graph').length; i++){
+		var ctx = document.getElementById("myChart"+i).getContext('2d');
+		var myChart = new Chart(ctx, {
 		type : 'bar',
 		data : {
 			labels : ["Kalimantan", "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Selatan", "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat", "Maluku", "Papua", "Papua Barat"],
@@ -158,59 +112,7 @@
 			}
 		}
 	});
-
-	var ctx = document.getElementById("myChart3").getContext('2d');
-	var myChart = new Chart(ctx, {
-		type : 'bar',
-		data : {
-			labels : ["Kalimantan", "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Selatan", "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat", "Maluku", "Papua", "Papua Barat"],
-			datasets : [{
-				label : '# of Votes',
-				data : [12, 9, 3, 23 ,2 , 3, 2, 3, 4, 5, 6, 7,],
-				backgroundColor : [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor : [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth : 1
-			}]	
-		},
-		options : {
-			legend :{
-				display : false
-			},
-			scales: {
-				xAxes: [{
-					gridLines: {
-						display:false
-					},
-					stacked : false,
-					begitAtZero : true,
-					ticks : {
-						autoSkip:false,
-						maxRotation: 90,
-						minRotation: 90
-					}
-				}],
-				yAxes: [{
-					gridLines: {
-						display:false
-					}   
-				}]
-			}
-		}
-	});
+	}
 
 </script>
 </html>

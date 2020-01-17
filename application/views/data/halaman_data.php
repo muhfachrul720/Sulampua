@@ -2,11 +2,11 @@
     <div class="row sect-data_ks my-4">
         <div class="col-lg-3">
            <ul>
-               <li>Sosial Dan Kesehatan</li>
-               <li>Ekonomi Dan Perbankan</li>
-               <li>Pertanian Dan Industri</li>
-               <li>Perencanaan</li>
-               <li>Lainnya</li>
+               <li class="data-tab">Sosial Dan Kesehatan</li>
+               <li class="data-tab">Ekonomi Dan Perbankan</li>
+               <li class="data-tab">Pertanian Dan Industri</li>
+               <li class="data-tab">Perencanaan</li>
+               <li class="data-tab">Lainnya</li>
            </ul>
         </div>
         <div class="col-lg-9">
