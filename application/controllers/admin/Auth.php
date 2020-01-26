@@ -30,10 +30,12 @@ class Auth extends CI_Controller {
             );
             
             $check = $this->m_user->check_user($where)->num_rows();
+            $id = $this->m_user->check_user($where)->row();
 
             if($check > 0) {
                 $data_session = array(
-                    'username' => $post['username'],
+                    'username' => $id->id,
+                    'user_name' => $post['username'],
                     'status' => 1
                 ); 
                 $this->session->set_userdata($data_session);

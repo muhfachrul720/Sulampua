@@ -37,15 +37,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">assignment</i>
-                        <span>Forms</span>
+                    <a href="<?=base_url('admin/categories')?>">
+                        <i class="material-icons">home</i>
+                        <span>Categories</span>
                     </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                        </li>
-                    </ul>
+                </li>
+                <li>
+                    <a href="<?= base_url()?>admin/dt_kasulampua/post">
+                        <i class="material-icons">archive</i>
+                        <span>Data Kasulampua</span>
+                    </a>
                 </li>
             </ul>
         </div>

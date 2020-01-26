@@ -32,6 +32,9 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?=base_url()?>assets/bsbtemplate/css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- Bootstrap Select Css -->
+    <link href="<?=base_url()?>assets/bsbtemplate/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
     <!-- Jquery Core Js -->
     <script src="<?= base_url() ?>assets/bsbtemplate/plugins/jquery/jquery.min.js"></script>
 </head>
