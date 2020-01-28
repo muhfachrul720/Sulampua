@@ -3,6 +3,9 @@
 <script src="<?= base_url()?>assets/js/chartjs/Chart.js"></script>
 
 <script>
+
+	loadData($('#catName li:first-child input').val());
+
 	// Init var
 	var trigger1 = 0;
 	var trigger2 = 0;
@@ -52,11 +55,36 @@
 		}
 	});
 
+	// First Active tab 
+	$('#catName li:first').addClass('active-tab');
+
 	// Active tab at Halaman Data
 	$('.data-tab').on('click', function(e){
 		$('.data-tab').not(this).removeClass("active-tab");
 		$(this).toggleClass("active-tab");
 	});
+
+	// fetch post ajax categories 
+	$('.data-tab').on('click', function() {
+		var id = $(this).find('input').val()
+		
+		loadData(id);
+	});
+
+	// Initial fetch Post Ajax
+	function loadData(id) {
+		$.ajax({
+			url : "<?= base_url();?>public_/data/fetch_post",
+			method : "POST", 
+			data : {id:id},
+			success:function(data){
+				$('#resultPost').html(data);
+			},
+			error:function(e){
+				alert('Gagal Dapat Data');
+			}
+		});
+	}
 
 	// Chart JS With Looping
 	for(var i=1; i<=$('.graph').length; i++){

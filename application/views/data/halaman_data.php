@@ -1,57 +1,17 @@
 <div class="container" >
     <div class="row sect-data_ks my-4">
         <div class="col-lg-3">
-           <ul>
-               <li class="data-tab">Sosial Dan Kesehatan</li>
-               <li class="data-tab">Ekonomi Dan Perbankan</li>
-               <li class="data-tab">Pertanian Dan Industri</li>
-               <li class="data-tab">Perencanaan</li>
-               <li class="data-tab">Lainnya</li>
+           <ul id="catName"> 
+                <?php foreach($cat as $c){?>
+                    <li class="data-tab">
+                        <input type="hidden" value="<?= $c->id?>">
+                        <?= $c->name?>
+                    </li>
+                <?php };?>
            </ul>
         </div>
-        <div class="col-lg-9">
-           <table style="width:100%">
-               <tr>
-                   <th width="70%">Judul Table</th>
-                   <th width="50%">Tahun Data</th>
-               </tr>
-               <tr>
-                   <td><a href="<?=base_url()?>public_/data/tampil_data">Gini Rasio September</a></td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Gini Rasio Market</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Jumlah Penduduk</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Tingkat Partisipasi Angkatan kerja Agustus (%)</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Tingkat Pengangguran Terbuka Agustus (%)</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Tingkat Partisipasi Angkatan Kerja Februari (%)</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Tingkat Pengangguran Terbuka Februari (%)</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Rasio Jenis Kelamin</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-               <tr>
-                   <td>Kepadatan Penduduk Jiwa/km2</td>
-                   <td>2015, 2016, 2017, 2018, 2019<td>
-               </tr>
-           </table>
+        <div class="col-lg-9" id="resultPost">
+
         </div>
     </div>
     <div class="row sect-indikator_ks my-4">

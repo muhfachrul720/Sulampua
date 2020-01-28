@@ -26,6 +26,7 @@
                                 $('#addBtn').on('click', function(){
                                     $('#iptModName').val('');
                                     $('#iptModPass').val('');
+                                    $('#idkAdd').css('display','block');
                                     $('#formTarget').attr('action', '<?=base_url()?>admin/categories/add_categories');
                                 });
                             </script>
@@ -39,7 +40,7 @@
                                         <th class="inputDelete" style="display:none">Input</th>    
                                         <th>No</th>
                                         <th width="40%">Username</th>
-                                        <th width="30%">Level</th>
+                                        <th width="30%">Jumlah Indikator</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -54,7 +55,7 @@
                                         </td>
                                         <td><?= $no++?></td>
                                         <td style="text-transform:capitalize"><?= $c->name?></td>
-                                        <td>Hello</td>
+                                        <td></td>
                                         <td>
                                             <button value="<?= $c->id?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
                                         </td>
@@ -69,10 +70,15 @@
                                                 data: {id:id},
                                                 dataType : 'JSON',
                                                 success: function(response){
+                                                    for(var i=1; i<response['Indikator'].length; i++){
+                                                        $('#idkcon').append('<input type="hidden" name="idkid[]" id="idkId" value="'+response['idIndikator'][i]+'"><div class="form-group optionalidk"><div class="form-line"><label for=""><small>Indikator</small></label><input type="text" class="form-control" value="'+response['Indikator'][i]+'" placeholder="Nama Indikator" name="indikator[]"><textarea rows="2" class="form-control no-resize" placeholder="Deskripsi Indikator" name="descindikator[]">'+response['Descidk'][i]+'</textarea></div></div>');
+                                                    }
+                                                    $('#idkName').val(response['Indikator'][0]);
+                                                    $('#idkDesc').val(response['Descidk'][0]);
+                                                    $('#idkId').val(response['idIndikator'][0]);
                                                     $('#iptModName').val(response['Title']);
-                                                    $('#iptModDesc').val(response['Description']);
-                                                    $('#iptModId').val(id);
                                                     $('#formTarget').attr('action', '<?=base_url()?>admin/categories/update_categories');
+                                                    $('#idkAdd').css('display','none');
                                                 },
                                                 error: function(){
                                                     alert('Terjadi Sebuah Kesalahan...');
@@ -120,12 +126,39 @@
                                 <input type="text" class="form-control" placeholder="Username" name="name" id="iptModName" />
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div id="idkcon">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="hidden" name="idkid[]" id="idkId">
+                                    <label for="idkName"><small>Indikator 1</small></label>
+                                    <input type="text" id="idkName" class="form-control indikator-name" placeholder="Nama Indikator" name="indikator[]" />
+                                    <textarea rows="2" id="idkDesc" class="form-control no-resize indikator-desc" placeholder="Deskripsi Indikator" name="descindikator[]"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fomr-group">
+                            <button type="button" id="idkAdd" class="btn btn-outline btn-success">Tambah Indikator</button>
+                            <script>
+                                var no = 1;
+                                $('#idkAdd').on('click', function(){
+                                    no++;
+                                    $('#idkcon').append('<div class="form-group optionalidk"><div class="form-line"><label for=""><small>Indikator '+no+'</small></label><input type="text" class="form-control" placeholder="Nama Indikator" name="indikator[]"><textarea rows="2" class="form-control no-resize" placeholder="Deskripsi Indikator" name="descindikator[]"></textarea></div></div>');
+                                });
+
+                                $("#defaultModal").on("hidden.bs.modal", function () {
+                                    $('.optionalidk').remove();
+                                    $('#idkName').val('');
+                                    $('#idkDesc').val('');
+                                    no = 1; 
+                                });
+                            </script>
+                        </div>
+                        <!-- <div class="form-group">
                             <div class="form-line">
                                 <label for="iptModDesc"><small>Deskripsi : </small></label>
                                 <textarea rows="4" id="iptModDesc" class="form-control no-resize" placeholder="Tulis Deskripsi Disini Kosong Juga Tidak Apa apa" name="desc"></textarea>
-                            </div>
-                        </div>
+    =                       </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

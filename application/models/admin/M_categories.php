@@ -24,7 +24,8 @@ class M_categories extends CI_Model {
 
     public function insert_new($data)
     {
-        return $this->db->insert($this->table_name, $data);
+        $this->db->insert($this->table_name, $data);
+        return $this->db->insert_id();
     }
 
     public function delete_batch($data)
@@ -35,9 +36,10 @@ class M_categories extends CI_Model {
 
     public function get_individual($where)
     {
-        $this->db->select('name, description');
-        $this->db->where('id', $where);
-        $this->db->from($this->table_name);
+        $this->db->select('c.name as cname, i.id as iid, i.name as iname, i.description as idesc');
+        $this->db->from($this->table_name. ' as c');
+        $this->db->join('table_indikator as i', 'c.id = i.cat_id');
+        $this->db->where('c.id', $where);
         return $this->db->get();
     }
 

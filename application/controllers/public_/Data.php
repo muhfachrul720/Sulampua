@@ -8,15 +8,50 @@ class Data extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('admin/m_categories');
+		$this->load->model('admin/m_posting');
 	}
 
 	public function index()
-	{	
+	{
+		$data['cat'] = $this->m_categories->display_categories()->result();
+
 		$this->load->view('_parts/public_/header');
 		$this->load->view('_parts/public_/navbar', $this->data);
-		$this->load->view('data/halaman_data');
+		$this->load->view('data/halaman_data', $data);
 		$this->load->view('_parts/public_/footer');
 		$this->load->view('_parts/public_/script');
+	}
+
+	public function fetch_post()
+	{
+		$output = '';
+		$id = $this->input->post('id');
+		$data = $this->m_posting->get_bycategories($id);	
+		$output .= '<table style="width:100%">
+						<tr>
+							<th width="70%">Judul Table</th>
+							<th width="50%">Tahun Data</th>
+						</tr>';
+		if($data->num_rows() > 0)
+		{
+			foreach($data->result() as $row){
+				$output .= '<tr>
+								<td><a href="<?=base_url()?>public_/data/tampil_data/'.$row->id.'">'.$row->name.'</a></td>
+								<td>2015, 2016, 2017, 2018, 2019<td>
+							</tr>';
+			}
+		}
+		else {
+			$output .= '<tr>
+							<td colspan="2">No Data Found</td>
+						</tr>';
+		}
+		
+		$output .= '</table>';
+
+		echo $output;
+
 	}
 
 	public function tampil_data()

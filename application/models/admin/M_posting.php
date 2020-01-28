@@ -12,11 +12,12 @@ class M_posting extends CI_Model {
 
     public function display_post($number = null, $offset=0)
     {
-        $this->db->select('post.id as newid, post.name as pname, post.status as pstatus,post.date as pdate, cat.name as cname, user.username as uname');
+        $this->db->select('post.id as newid, post.description as pdesc, post.name as pname, post.status as pstatus,post.date as pdate, cat.name as cname, user.username as uname');
         $this->db->from($this->table_name.' as post');
         $this->db->join('table_categories as cat', 'categories_id = cat.id');
         $this->db->join('table_user as user', 'user_id = user.id');
         $this->db->limit($number, $offset);
+        $this->db->order_by('pdate', 'DESC');
         return $this->db->get();    
     }
 
@@ -65,6 +66,14 @@ class M_posting extends CI_Model {
     {
         $this->db->where('id', $where);
         return $this->db->update($this->table_name, $data);
+    }
+
+    public function get_bycategories($where)
+    {
+        $this->db->select('id, name');
+        $this->db->from($this->table_name);
+        $this->db->where('categories_id', $where);
+        return $this->db->get();
     }
 
 }

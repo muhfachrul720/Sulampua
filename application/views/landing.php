@@ -48,14 +48,16 @@
 							<h2>Berita Terbaru</h2>
 						</div>
 						<div class="col-lg-12">
+							<?php foreach($presult as $res){?>
 							<div class="info-latest my-4">
 								<div class="row w-100">
 									<div class="col-lg-9">
-										<div class="title"> Sosial Dan Kesehatan </div>
+										<small><?= $res->cname?></small>
+										<div class="title"> <?= substr($res->pname, 0, 35)?> </div>
 										<div class="summary">
-											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate iure recusandae nisi magnam ipsum quisquam quasi impedit pariatur doloremque perferendis, cumque molestiae mollitia atque nesciunt itaque sunt reprehenderit consequatur ullam?
+											<?= substr($res->pdesc, 0, 290)?>..
 										</div>
-										<div class="date">12 Januari 2019</div>
+										<div class="date"><?= $res->pdate?></div>
 									</div>
 									<div class="col-lg-3 p-0 m-auto" style="text-align:center;">
 										<button class="btn btn-theme-1 btn-sm my-2 w-75">More..</button>
@@ -63,36 +65,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="info-latest my-4">
-								<div class="row w-100">
-									<div class="col-lg-9">
-										<div class="title"> Ekonomi Dan Perbankan </div>
-										<div class="summary">
-											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate iure recusandae nisi magnam ipsum quisquam quasi impedit pariatur doloremque perferendis, cumque molestiae mollitia atque nesciunt itaque sunt reprehenderit consequatur ullam?
-										</div>
-										<div class="date">12 Januari 2019</div>
-									</div>
-									<div class="col-lg-3 p-0 m-auto" style="text-align:center;">
-										<button class="btn btn-theme-1 btn-sm my-2 w-75">More..</button>
-										<button class="btn btn-theme-1 btn-sm my-2 w-75"><i class="fas fa-download"></i> Download</button>
-									</div>
-								</div>
-							</div>
-							<div class="info-latest my-4">
-								<div class="row w-100">
-									<div class="col-lg-9">
-										<div class="title"> Pertanian Dan Industri </div>
-										<div class="summary">
-											Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate iure recusandae nisi magnam ipsum quisquam quasi impedit pariatur doloremque perferendis, cumque molestiae mollitia atque nesciunt itaque sunt reprehenderit consequatur ullam?
-										</div>
-										<div class="date">12 Januari 2019</div>
-									</div>
-									<div class="col-lg-3 p-0 m-auto" style="text-align:center;">
-										<button class="btn btn-theme-1 btn-sm my-2 w-75">More..</button>
-										<button class="btn btn-theme-1 btn-sm my-2 w-75"><i class="fas fa-download"></i> Download</button>
-									</div>
-								</div>
-							</div>
+							<?php };?>
 							<div class="info-latest my-4">
 								<div class="row w-100">
 									<div class="col-lg-12">

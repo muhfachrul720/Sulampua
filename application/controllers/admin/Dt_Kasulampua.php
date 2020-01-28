@@ -91,7 +91,7 @@ class Dt_Kasulampua extends Admin_Controller {
                 'categories_id' => $post['cat'],
                 'date' =>  $post['date'],
                 'user_id' => $post['user_id'],
-                'file_id' => $post['file_id']
+                'status' => $post['file_id']
             );
 
             if($this->m_posting->update_old($data, $post['id'])) {
