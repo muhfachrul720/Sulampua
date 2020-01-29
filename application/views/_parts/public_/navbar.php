@@ -8,7 +8,7 @@
 <?php }?>
     <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark py-4">
-            <a href="" class="navbar-brand"><img src="<?= base_url()?>assets/img/kasulampua.png" alt="" width="140"></a>
+            <a href="" class="navbar-brand"><img src="<?= base_url()?>assets/img/kasulampua_ver2.png" alt="" width="140"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -21,7 +21,7 @@
                         <a class="nav-link mx-3 cs-btn" href="<?=base_url()?>">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link mx-3 cs-btn" href="<?=base_url('public_/data')?>">Data Kasulampua</a>
+                        <a class="nav-link mx-3 cs-btn" href="<?=base_url('public_/data')?>">Data Sulampuka</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link mx-3 cs-btn" href="<?=base_url('public_/infografis')?>">Infografis</a>

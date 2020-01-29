@@ -21,6 +21,13 @@ class M_posting extends CI_Model {
         return $this->db->get();    
     }
 
+    public function get_filename($data)
+    {   
+        $this->db->select('file_name, file_img');
+        $this->db->where_in('id', $data);
+        return $this->db->get($this->table_name);
+    }
+
     public function check_file_id($where)
     {
         $this->db->select('name,status');

@@ -48,4 +48,5 @@ class M_categories extends CI_Model {
         $this->db->where('id', $where);
         return $this->db->update($this->table_name, $data);
     }
+
 }

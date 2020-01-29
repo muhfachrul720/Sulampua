@@ -24,12 +24,12 @@
         <div class="menu" style="overflow:hidden">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="">
-                    <a href="<?=base_url('dashboard')?>">
+                <!-- <li class="">
+                    <a href="<?php // echo base_url('dashboard')?>">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="<?=base_url('admin/user')?>">
                         <i class="material-icons">face</i>

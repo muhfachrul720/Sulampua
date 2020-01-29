@@ -4,7 +4,8 @@
 
 <script>
 
-	loadData($('#catName li:first-child input').val());
+	loadData($('#catName li:first-child input').val(), "<?= base_url();?>public_/data/fetch_post", "#resultPost");
+	loadData($('#catName li:first-child input').val(), "<?= base_url();?>public_/data/fetch_idk", "#idkResult");
 
 	// Init var
 	var trigger1 = 0;
@@ -67,18 +68,28 @@
 	// fetch post ajax categories 
 	$('.data-tab').on('click', function() {
 		var id = $(this).find('input').val()
-		
-		loadData(id);
+		var url = "<?= base_url();?>public_/data/fetch_post";
+		var target = "#resultPost";
+		loadData(id, url, target);
+	});
+
+	$('.data-tab').on('click', function() {
+		var id = $(this).find('input').val()
+		var url = "<?= base_url();?>public_/data/fetch_idk";
+		var target = "#idkResult";
+		loadData(id, url, target);
 	});
 
 	// Initial fetch Post Ajax
-	function loadData(id) {
+	function loadData(id, url, target) {
 		$.ajax({
-			url : "<?= base_url();?>public_/data/fetch_post",
+			// url : "<?php //echo base_url();?>public_/data/fetch_post",
+			url : url,
 			method : "POST", 
 			data : {id:id},
 			success:function(data){
-				$('#resultPost').html(data);
+				$(target).html(data);
+				// $('#idkResult').html(data['idk']);
 			},
 			error:function(e){
 				alert('Gagal Dapat Data');

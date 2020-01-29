@@ -41,6 +41,13 @@ class Dt_Kasulampua extends Admin_Controller {
     // POSTINGAN
     public function add_post()
     {
+        $config['upload_path']          = 'upload/data_img';
+        $config['allowed_types']        = 'jpg|png';
+        $config['max_size']             = 0;
+        $config['file_name']            = $this->input->post('name');
+
+        $this->load->library('upload', $config);
+
         $post = $this->input->post();
         $this->form_validation->set_rules('name', 'Title', 'required');
 
@@ -54,12 +61,18 @@ class Dt_Kasulampua extends Admin_Controller {
                 redirect('admin/dt_kasulampua/post');
             }
             else {
+
+                $this->upload->do_upload('image');
+
+                $fileExt = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+
                 $data = array(
                     'name' => $post['name'],
                     'description' => $post['desc'],
                     'categories_id' => $post['cat'],
                     'date' =>  $post['date'],
-                    'user_id' => $post['user_id']
+                    'user_id' => $post['user_id'],
+                    'file_img' => $config['file_name'].'.'.$fileExt
                 );
 
                 if($this->m_posting->insert_new($data)) {
@@ -108,9 +121,17 @@ class Dt_Kasulampua extends Admin_Controller {
     public function delete_post()
     {
         $post = $this->input->post();
-        
-        if($this->m_posting->delete_batch($post['id'])){
 
+        $filename = $this->m_posting->get_filename($post['id'])->result();
+
+        foreach ($filename as $f){
+            $pathxl = 'upload/data_excel/'.$f->file_name;
+            $pathimg = 'upload/data_img/'.$f->file_img;
+            unlink($pathxl);
+            unlink($pathimg);
+        }
+
+        if($this->m_posting->delete_batch($post['id'])){
             $this->m_file->delete_batch($post['id']);
 
             $this->session->set_flashdata('alert', 'Berhasil Menghapus Postingan');
@@ -182,6 +203,7 @@ class Dt_Kasulampua extends Admin_Controller {
             }
             else
             {
+                $fileExt = pathinfo($_FILES["userfile"]["name"], PATHINFO_EXTENSION);
                 $path = $_FILES["userfile"]["tmp_name"];
 
                 $data = $this->import_excel($path, $this->input->post('postid'));
@@ -190,6 +212,7 @@ class Dt_Kasulampua extends Admin_Controller {
                     
                     $status = array(
                         'status' => 1,
+                        'file_name' => $config['file_name'].'.'.$fileExt
                     );
                     
                     $this->m_posting->update_status($status, $this->input->post('postid'));
@@ -211,6 +234,7 @@ class Dt_Kasulampua extends Admin_Controller {
         $config['max_size']             = 100;
         $config['max_width']            = 1024;
         $config['max_height']           = 768;
+        $config['overwrite']            = TRUE;
         $config['file_name']            = 'db'.$this->input->post('postid');
 
         $this->load->library('upload', $config);

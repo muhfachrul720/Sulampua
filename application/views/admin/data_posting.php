@@ -36,30 +36,44 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Detail Postingan
-                                <small>Berisi Detail Postingan</small>
-                            </h2>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="header">
+                                    <h2>
+                                        Detail Postingan
+                                        <small>Berisi Detail Postingan</small>
+                                    </h2>
+                                </div>
+                                <div class="body">
+                                    <div class="row clear-fix">
+                                        <div class="col-sm-6">
+                                            <small id="infoTitle">Judul : </small>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <small id="infoStatus">Status Upload : </small>
+                                        </div>
+                                        <div class="col-sm-11">
+                                            <small>Deskripsi : </small>
+                                            <p style="text-align:justify; padding:4px 4px" id="infoDesc">
+                                            
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer"></div>
+                            </div>  
                         </div>
-                        <div class="body">
-                            <div class="row clear-fix">
-                                <div class="col-sm-6">
-                                    <small id="infoTitle">Judul : </small>
-                                </div>
-                                <div class="col-sm-6">
-                                    <small id="infoStatus">Status Upload : </small>
-                                </div>
-                                <div class="col-sm-11">
-                                    <small>Deskripsi : </small>
-                                    <p style="text-align:justify; padding:4px 4px" id="infoDesc">
-                                       
-                                    </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card">
+                                <div class="body">
+                                    <span>Download Template Excel Kami Disini</span>
+                                    <a href="<?=base_url()?>assets/file/TemplateKasulampua.xls" download style="margin-left:38%" class="btn btn-success">Download Template</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="footer"></div>
                     </div>
                 </div>
             </div>
@@ -187,7 +201,7 @@
 
 
 <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
-    <form id="formTarget" action="" method="post">
+    <form id="formTarget" action="" method="post" enctype="multipart/form-data">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -232,6 +246,12 @@
                                 <textarea rows="4" id="iptModDesc" class="form-control no-resize" placeholder="Tulis Deskripsi Disini Kosong Juga Tidak Apa apa" name="desc"></textarea>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="iptModImg"><small>Image: </small></label>
+                            <input type="file" style="hidden" name="image" required accept=".jpg, .png">
+                        </div>
+
                     </div>
                 </div>
             </div>

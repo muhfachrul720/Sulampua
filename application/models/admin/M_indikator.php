@@ -10,6 +10,14 @@ class M_indikator extends CI_Model {
         parent::__construct();
     }
 
+    public function get_idk($where)
+    {
+        $this->db->select('id, name, description');
+        $this->db->from($this->table_name);
+        $this->db->where('cat_id', $where);
+        return $this->db->get();
+    }
+
     public function delete_batch($data)
     {
         $this->db->where_in('cat_id', $data);
