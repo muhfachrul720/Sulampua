@@ -70,7 +70,7 @@
                             <div class="card">
                                 <div class="body">
                                     <span>Download Template Excel Kami Disini</span>
-                                    <a href="<?=base_url()?>assets/file/TemplateKasulampua.xls" download style="margin-left:38%" class="btn btn-success">Download Template</a>
+                                    <a href="<?=base_url()?>assets/file/TemplateKasulampua.xls" download style="margin-left:35%" class="btn btn-success">Download Template</a>
                                 </div>
                             </div>
                         </div>
@@ -86,13 +86,12 @@
                                     $('#addBtn').on('click', function(){
                                         $('#iptModName').val('');
                                         $('#iptModPass').val('');
-                                        $('#formTarget').attr('action', '<?=base_url()?>admin/dt_kasulampua/add_post');
+                                        $('#formTarget').attr('action', '<?=base_url()?>user/dt_kasulampua/add_post');
                                     });
                                 </script>
                             <button type="button" class="btn btn-danger waves-effect" id="deleteBtn">Hapus</button>
                         </div>
                         <div class="body">
-                            <form action="<?= base_url()?>admin/dt_kasulampua/delete_post" method="POST">
                             <table id="mainTable" class="table table-striped">
                                 <thead>
                                     <tr>
@@ -119,7 +118,7 @@
                                         <td style="text-transform:capitalize"><?= $c->pname?></td>
                                         <td><?= $c->pdate?></td>
                                         <td><?= $c->cname?></td>
-                                        <td><?= $c->uname?></td>
+                                        <td style="text-transform:capitalize"><?= $c->uname?></td>
                                         <td>
                                             <?php 
                                                 echo ($c->pstatus < 1 ? 'Kosong' : 'Terupload');
@@ -128,7 +127,7 @@
                                         <td>
                                             <button value="<?= $c->newid?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
                                             <button type="button" value="<?= $c->newid ?>" class="btn btn-info infoBtn"><i class="material-icons">info</i></button>
-                                            <?= anchor('admin/dt_kasulampua/file/'.$c->newid.'', '<i class="material-icons">archive</i>', 'class="btn btn-success"')?>
+                                            <?= anchor('user/dt_kasulampua/file/'.$c->newid.'', '<i class="material-icons">archive</i>', 'class="btn btn-success"')?>
                                         </td>
                                     </tr>
                                     <?php };?>
@@ -137,17 +136,16 @@
                                             var id = $(this).val();
                                             $.ajax({
                                                 type: "POST",
-                                                url: '<?= base_url()?>admin/dt_kasulampua/get_data_individual',
+                                                url: '<?= base_url()?>user/dt_kasulampua/get_data_individual',
                                                 data: {id:id},
                                                 dataType : 'JSON',
                                                 success: function(response){
                                                     $('#iptModName').val(response['Title']);
                                                     $('#iptModDesc').val(response['Desc']);
                                                     $('#iptModFile').val(response['File']);
-                                                    $('#iptModCat').val(response['Cat']);
-                                                    $('#iptModCat').text(response['CatName']);
+                                                    $('#iptModCat').val(response['Cat']).change();
                                                     $('#iptModId').val(id);
-                                                    $('#formTarget').attr('action', '<?=base_url()?>admin/dt_kasulampua/update_categories');
+                                                    $('#formTarget').attr('action', '<?=base_url()?>user/dt_kasulampua/update_post');
                                                 },
                                                 error: function(){
                                                     alert('Terjadi Sebuah Kesalahan...');
@@ -159,7 +157,7 @@
                                             var id = $(this).val();
                                             $.ajax({
                                                 type: "POST",
-                                                url: '<?= base_url()?>admin/dt_kasulampua/get_data_individual',
+                                                url: '<?= base_url()?>user/dt_kasulampua/get_data_individual',
                                                 data: {id:id},
                                                 dataType : 'JSON',
                                                 success: function(response){
@@ -186,8 +184,7 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <button type="submit" class="btn btn-danger inputDelete" style="display:none">Hapus</button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#smallModal" disabled class="btn btn-danger inputDelete" id="btnDelete" style="display:none" value="user/dt_kasulampua/delete_post">Hapus</button>
                             <br>
                             <?=
                                 $this->pagination->create_links();
@@ -199,6 +196,21 @@
         </div>
 </section>
 
+<div class="modal fade" id="smallModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <form id="deleteForm" action="" method="POST">
+                <div class="modal-body" id="modalDelete"> 
+                Yakin ingin Menghapus Data??
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-link waves-effect">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
     <form id="formTarget" action="" method="post" enctype="multipart/form-data">
@@ -232,8 +244,8 @@
 
                         <div class="form-group">
                             <label class="pb-3" for="iptModCat"><small>Kategori : </small></label>
-                            <select name="cat" class="form-control show-tick">
-                                <option id="iptModCat" value="0" selected>--- Choose Categories ---</option>
+                            <select id="iptModCat" name="cat" class="form-control show-tick">
+                                <option value="0" selected>--- Choose Categories ---</option>
                                 <?php foreach($categories as $c) {?>
                                     <option value="<?= $c->id?>"><?= $c->name?></option>
                                 <?php }?>
@@ -246,12 +258,6 @@
                                 <textarea rows="4" id="iptModDesc" class="form-control no-resize" placeholder="Tulis Deskripsi Disini Kosong Juga Tidak Apa apa" name="desc"></textarea>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="iptModImg"><small>Image: </small></label>
-                            <input type="file" style="hidden" name="image" required accept=".jpg, .png">
-                        </div>
-
                     </div>
                 </div>
             </div>

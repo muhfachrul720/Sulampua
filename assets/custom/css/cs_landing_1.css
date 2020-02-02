@@ -41,7 +41,7 @@ ul li {
 }
 
 @font-face {
-	font-family: Cinzel;
+	font-family: Helvetica, sans-serif;
 	src: url(../../font/CinzelDecorative-Regular.otf);
 }
 
@@ -95,7 +95,7 @@ ul li {
 	text-align: center;
 	color: #ffffff;
 	position: relative;
-	font-family: Cinzel;
+	font-family: Helvetica, sans-serif;
 	padding: 32px;
 }
 
@@ -204,7 +204,12 @@ ul li {
 
 .btn-theme-1:hover {
 	background-color: rgb(49, 49, 49);
-	color: #ffffff;
+	color: #ffffff !important;
+	cursor: pointer;
+}
+
+.download a:hover {
+	/* color: white !important; */
 }
 
 .sect-data h2::before {
@@ -543,4 +548,3 @@ ul li {
 .sect-infografis>div:first-of-type>div:first-of-type {
 	padding-bottom: 24px;
 }
-

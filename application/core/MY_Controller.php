@@ -21,3 +21,27 @@ class Admin_Controller extends MY_Controller {
     }
 
 }
+
+class User_Controller extends MY_Controller {
+
+    public function __construct()
+    {
+        parent::__construct();
+        if($this->session->userdata('status') == 3 || $this->session->userdata('status') == null){
+            redirect('backend');
+        }
+    }
+
+}
+
+class Operator_Controller extends MY_Controller {
+
+    public function __construct()
+    {
+        parent::__construct();
+        if($this->session->userdata('status') == null){
+            redirect('backend');
+        }   
+    }
+    
+}

@@ -32,7 +32,7 @@
         <div class="card mt-2" style="width:18rem; ">
             <div class="card-body p-3">
                 <h5 class="card-title pb-2" style="text-align:center">Login</h5>
-               <form action="<?=base_url()?>admin/auth/auth" method="POST">
+               <form action="<?=base_url()?>auth/auth" method="POST">
                     <div class="form-group">
                         <small><?= form_error('username')?></small>
                         <input type="text" class="form-control" id="inputUsername" aria-describedby="usernameHelp" placeholder="Username..." name="username">

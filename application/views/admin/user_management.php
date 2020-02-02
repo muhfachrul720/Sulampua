@@ -26,16 +26,17 @@
                                 $('#addBtn').on('click', function(){
                                     $('#iptModName').val('');
                                     $('#iptModPass').val('');
+                                    $('#iptModLv').val('0').change();
+                                    $('#iptModProv').val('0').change();
                                     $('#formTarget').attr('action', '<?=base_url()?>admin/user/add_user');
                                 });
                             </script>
                             <button type="button" class="btn btn-danger waves-effect" id="deleteBtn">Hapus</button>
                         </div>
                         <div class="body">
-                            <form action="<?= base_url()?>admin/user/delete_user" method="POST">
-                            <table id="mainTable" class="table table-striped">
-                                <thead>
-                                    <tr>
+                                <table id="mainTable" class="table table-striped">
+                                    <thead>
+                                        <tr>
                                         <th class="inputDelete" style="display:none">Input</th>    
                                         <th>No</th>
                                         <th width="40%">Username</th>
@@ -49,17 +50,19 @@
                                     foreach($user as $u) {?>
                                     <tr>
                                         <td class="inputDelete" style="display:none"> 
-                                        <?php if($no > 0) {?>
+                                            <?php if($no > 0) {?>
                                             <input type="checkbox" id="checkbox_<?= $u->id?>" class="filled-in" value="<?= $u->id?>" name="id[]"/>
                                             <label for="checkbox_<?= $u->id?>"></label>
-                                        <?php };?>
-                                    </td>
+                                            <?php };?>
+                                        </td>
                                     <td><?= $no++?></td>
                                     <td style="text-transform:capitalize"><?= $u->username?></td>
-                                    <td><?php if($u->status == 1) echo "Super Admin"; else echo "Admin" ?></td>
-                                    <td>
-                                        <button value="<?= $u->id?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
-                                    </td>
+                                    <td><?php if($u->status == 1) echo "Super Admin"; else if($u->status == 2) echo "Admin"; else echo "Operator" ?></td>
+                                    <?php if($u->status != 1) {?>
+                                        <td>
+                                            <button value="<?= $u->id?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
+                                        </td>
+                                    <?php };?>
                                     </tr>
                                     <?php };?>
                                     <script>
@@ -74,6 +77,8 @@
                                                     $('#iptModName').val(response['Username']);
                                                     $('#iptModPass').val(response['Password']);
                                                     $('#iptModId').val(id);
+                                                    $('#iptModLv').val(response['Status']).change();
+                                                    $('#iptModProv').val(response['ProvId']).change();
                                                     $('#formTarget').attr('action', '<?=base_url()?>admin/user/update_user');
                                                 },
                                                 error: function(){
@@ -90,8 +95,7 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <button type="submit" class="btn btn-danger inputDelete" style="display:none">Hapus</button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#smallModal" disabled class="btn btn-danger inputDelete" id="btnDelete" style="display:none" value="admin/user/delete_user">Hapus</button>
                             <br>
                             <?=
                                 $this->pagination->create_links();
@@ -115,17 +119,40 @@
             <div class="modal-body">
                 <div class="row clearfix">
                     <div class="col-sm-12">
-                            <input type="hidden" value="" id="iptModId" name="id">
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Username" name="username" id="iptModName" />
-                                </div>
+                        <input type="hidden" value="" id="iptModId" name="id">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label for="iptModName"><small>Username : </small></label>
+                                <input type="text" class="form-control" placeholder="Username" name="username" id="iptModName" />
                             </div>
-                            <div class="form-group">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" placeholder="Password" name="password" id="iptModPass" />
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label for="iptModPass"><small>Password : </small></label>
+                                <input type="text" class="form-control" placeholder="Password" name="password" id="iptModPass" />
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label for="iptModProv"><small>Provinsi : </small></label>
+                                <select name="province" id="iptModProv" class="form-control" required>
+                                    <option value="0">Pilih Provinsi</option>
+                                    <?php foreach($prov as $pr){?>
+                                        <option value="<?= $pr->id?>"><?= $pr->name?></option>
+                                    <?php };?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label for="iptModLv"><small>Hak Akses : </small></label>
+                                <select name="level" id="iptModLv" class="form-control" required>
+                                    <option value="0">Silahkan Memilih Hak Akses</option>
+                                    <option value="2">Admin</option>
+                                    <option value="3">Operator</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

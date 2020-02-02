@@ -40,9 +40,10 @@ class M_user extends CI_Model {
 
     public function get_individual($where)
     {
-        $this->db->select('username, password');
-        $this->db->where('id', $where);
-        $this->db->from($this->table_name);
+        $this->db->select('u.username as uname, u.password as upass, u.status as ustatus, p.name as pname, p.id as pid');
+        $this->db->from($this->table_name.' as u');
+        $this->db->join('table_province as p', 'u.province_id = p.id');
+        $this->db->where('u.id', $where);
         return $this->db->get();
     }
 

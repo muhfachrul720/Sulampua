@@ -18,6 +18,22 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                    <form action="" method="post">
+                       <div class="body" style="display:flex; padding-top:8px; padding-bottom:8px">
+                            <div style="width: 85%">
+                                <input type="text" name="search" id="" placeholder="Cari Disini" class="form-control">
+                            </div>
+                            <div style="width: 14%; margin-left:2%">
+                                <input type="submit" value="Cari.." class="btn btn-success" style="width:100%;margin-top:2px">
+                            </div>
+                       </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
@@ -33,7 +49,6 @@
                             <button type="button" class="btn btn-danger waves-effect" id="deleteBtn">Hapus</button>
                         </div>
                         <div class="body">
-                            <form action="<?= base_url()?>admin/categories/delete_categories" method="POST">
                             <table id="mainTable" class="table table-striped">
                                 <thead>
                                     <tr>
@@ -50,7 +65,7 @@
                                     foreach($cat as $c) {?>
                                     <tr>
                                         <td class="inputDelete" style="display:none"> 
-                                            <input type="checkbox" id="checkbox_<?= $c->id?>" class="filled-in" value="<?= $c->id?>" name="id[]"/>
+                                            <input type="checkbox" id="checkbox_<?= $c->id?>" class="filled-in" value="<?= $c->id?>"/>
                                             <label for="checkbox_<?= $c->id?>"></label>
                                         </td>
                                         <td><?= $no++?></td>
@@ -77,6 +92,7 @@
                                                     $('#idkDesc').val(response['Descidk'][0]);
                                                     $('#idkId').val(response['idIndikator'][0]);
                                                     $('#iptModName').val(response['Title']);
+                                                    $('#iptModId').val(id);
                                                     $('#formTarget').attr('action', '<?=base_url()?>admin/categories/update_categories');
                                                     $('#idkAdd').css('display','none');
                                                 },
@@ -94,8 +110,7 @@
                                     </tr>
                                 </tfoot>
                             </table>
-                            <button type="submit" class="btn btn-danger inputDelete" style="display:none">Hapus</button>
-                            </form>
+                            <button type="button" data-toggle="modal" data-target="#smallModal" disabled class="btn btn-danger inputDelete" id="btnDelete" style="display:none" value="admin/categories/delete_categories">Hapus</button>
                             <br>
                             <?=
                                 $this->pagination->create_links();

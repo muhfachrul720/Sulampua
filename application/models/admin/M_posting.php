@@ -10,12 +10,22 @@ class M_posting extends CI_Model {
         parent::__construct();
     }
 
-    public function display_post($number = null, $offset=0)
+    public function get_byid($where)
+    {   
+        $this->db->select('file_name');
+        $this->db->where('id', $where);
+        return $this->db->get($this->table_name);
+    }
+
+    public function display_post($number = null, $offset=0, $where=null)
     {
         $this->db->select('post.id as newid, post.description as pdesc, post.name as pname, post.status as pstatus,post.date as pdate, cat.name as cname, user.username as uname');
         $this->db->from($this->table_name.' as post');
         $this->db->join('table_categories as cat', 'categories_id = cat.id');
         $this->db->join('table_user as user', 'user_id = user.id');
+        if($where != null) {
+            $this->db->where('post.province_id', $where);
+        }
         $this->db->limit($number, $offset);
         $this->db->order_by('pdate', 'DESC');
         return $this->db->get();    
@@ -23,7 +33,7 @@ class M_posting extends CI_Model {
 
     public function get_filename($data)
     {   
-        $this->db->select('file_name, file_img');
+        $this->db->select('file_name');
         $this->db->where_in('id', $data);
         return $this->db->get($this->table_name);
     }

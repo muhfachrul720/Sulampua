@@ -26,7 +26,7 @@
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i
                                 class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-                    <li class="pull-right"><a href="<?= base_url()?>admin/auth/logout" class="js-right-sidebar" data-close="true"><i
+                    <li class="pull-right"><a href="<?= base_url()?>auth/logout" class="js-right-sidebar" data-close="true"><i
                                 class="material-icons">exit_to_app</i></a></li>
                 </ul>
             </div>

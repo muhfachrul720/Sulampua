@@ -14,7 +14,7 @@ class Home extends Admin_Controller {
         $this->load->view('_parts/admin_/loader.php');
         $this->load->view('_parts/admin_/navbar.php');
         $this->load->view('_parts/admin_/sidebar.php');
-        $this->load->view('admin/dashboard_page');
+        $this->load->view('_parts/admin_/dashboard.php');
         $this->load->view('_parts/admin_/script.php');
     }
 

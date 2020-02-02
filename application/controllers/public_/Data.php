@@ -10,6 +10,7 @@ class Data extends CI_Controller {
 		parent::__construct();
 		$this->load->model('admin/m_categories');
 		$this->load->model('admin/m_posting');
+		$this->load->model('admin/m_file');
 		$this->load->model('admin/m_indikator');
 	}
 
@@ -19,7 +20,7 @@ class Data extends CI_Controller {
 
 		$this->load->view('_parts/public_/header');
 		$this->load->view('_parts/public_/navbar', $this->data);
-		$this->load->view('data/halaman_data', $data);
+		$this->load->view('public/data/halaman_data', $data);
 		$this->load->view('_parts/public_/footer');
 		$this->load->view('_parts/public_/script');
 	}
@@ -40,7 +41,7 @@ class Data extends CI_Controller {
 		{
 			foreach($data->result() as $row){
 				$output .= '<tr>
-				<td><a href="<?=base_url()?>public_/data/tampil_data/'.$row->id.'">'.$row->name.'</a></td>
+				<td><a href="'.base_url().'public_/data/tampil_data/'.$row->id.'">'.$row->name.'</a></td>
 										<td>2015, 2016, 2017, 2018, 2019<td>
 										</tr>';
 									}
@@ -90,11 +91,14 @@ class Data extends CI_Controller {
 	}
 
 
-	public function tampil_data()
+	public function tampil_data($id)
 	{
+		$data['detail'] = $this->m_file->display_data($id)->result();
+		$data['file'] = $this->m_posting->get_byid($id)->row();
+
 		$this->load->view('_parts/public_/header');
 		$this->load->view('_parts/public_/navbar', $this->data);
-		$this->load->view('data/detail_data');
+		$this->load->view('public/data/detail_data',$data);
 		$this->load->view('_parts/public_/footer');
 		$this->load->view('_parts/public_/script');
 	}

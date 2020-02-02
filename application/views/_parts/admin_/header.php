@@ -35,6 +35,9 @@
     <!-- Bootstrap Select Css -->
     <link href="<?=base_url()?>assets/bsbtemplate/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 
+    <!-- CkEditor -->
+    <script src="<?= base_url()?>assets/js/ckeditor/ckeditor.js"></script>
+
     <!-- Jquery Core Js -->
     <script src="<?= base_url() ?>assets/bsbtemplate/plugins/jquery/jquery.min.js"></script>
 </head>

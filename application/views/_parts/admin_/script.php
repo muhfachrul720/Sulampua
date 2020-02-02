@@ -47,6 +47,35 @@
             i = 0;
         }
     });
+
+    // Disabled Delete Button
+    $('.filled-in').on('change', function(){
+        var count = $('.filled-in:checked').length;
+        if(count > 0){
+            $('.inputDelete').attr('disabled', false);
+        }
+        else {
+            $('.inputDelete').attr('disabled', true);
+        }
+    });
+
+    // Passing ID to Modal 
+    $('#btnDelete').on('click', function(){
+        
+    var action = $(this).val();
+    $('#deleteForm').attr('action', '<?=base_url()?>'+action+'');
+
+    for(var i=0; i < $('.filled-in:checked').length; i++){
+        var val = $('.filled-in:checked').eq(i).val();
+        $('#modalDelete').append('<input type="hidden" name="id[]" class="idRemove" value="'+val+'">')
+    };
+    
+    })
+
+    // Remove ID 
+    $('#smallModal').on('hidden.bs.modal', function (e) {
+        $('.idRemove').remove();
+    })
 </script>
 
 <!-- Demo Js -->

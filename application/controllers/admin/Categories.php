@@ -24,6 +24,7 @@ class Categories extends Admin_Controller {
         $this->load->view('_parts/admin_/navbar.php');
         $this->load->view('_parts/admin_/sidebar.php');
         $this->load->view('admin/categories_page', $data);
+        $this->load->view('_parts/admin_/modal.php');
         $this->load->view('_parts/admin_/script.php');
     }
 
@@ -33,6 +34,7 @@ class Categories extends Admin_Controller {
         $post = $this->input->post();
         $i = 0;
         $j = 0;
+        
         $this->form_validation->set_rules('name', 'name', 'required');
         
         if($this->form_validation->run() == FALSE){
