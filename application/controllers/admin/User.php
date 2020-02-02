@@ -14,10 +14,9 @@ class User extends Admin_Controller {
     {
         $total = $this->m_user->total_user()->num_rows();
         $from = $this->uri->segment(4);
-        echo $from;
         $this->pagination->initialize(cs_pagination('admin/user/index', $total, 10));
         
-        $data['user'] = $this->m_user->display_user(10, $from)->result();
+        $data['user'] = $this->m_user->display_user(10, $from, $this->input->post('search'))->result();
         $data['prov'] = $this->m_province->get_option()->result();
         
         $this->load->view('_parts/admin_/header.php');

@@ -17,15 +17,21 @@ class M_posting extends CI_Model {
         return $this->db->get($this->table_name);
     }
 
-    public function display_post($number = null, $offset=0, $where=null)
+    public function display_post($number = null, $offset=0, $where=null, $like=null)
     {
         $this->db->select('post.id as newid, post.description as pdesc, post.name as pname, post.status as pstatus,post.date as pdate, cat.name as cname, user.username as uname');
         $this->db->from($this->table_name.' as post');
         $this->db->join('table_categories as cat', 'categories_id = cat.id');
         $this->db->join('table_user as user', 'user_id = user.id');
+
         if($where != null) {
             $this->db->where('post.province_id', $where);
         }
+        
+        if($like != null) {
+            $this->db->like('post.name', $like);
+        }
+
         $this->db->limit($number, $offset);
         $this->db->order_by('pdate', 'DESC');
         return $this->db->get();    

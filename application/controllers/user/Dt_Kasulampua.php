@@ -34,9 +34,9 @@ class Dt_Kasulampua extends User_Controller {
         
         $status = $this->session->userdata('status');
         if($status == 1){
-            $data['post'] = $this->m_posting->display_post(10, $from)->result(); 
+            $data['post'] = $this->m_posting->display_post(10, $from, null, $this->input->post('search'))->result(); 
         } else if ($status == 2){
-            $data['post'] = $this->m_posting->display_post(10, $from, $row->province_id)->result(); 
+            $data['post'] = $this->m_posting->display_post(10, $from, $row->province_id, $this->input->post('search'))->result(); 
         }
         $this->load->view('_parts/admin_/header.php');
         $this->load->view('_parts/admin_/loader.php');

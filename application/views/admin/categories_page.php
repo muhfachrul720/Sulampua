@@ -20,15 +20,18 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
-                    <form action="" method="post">
-                       <div class="body" style="display:flex; padding-top:8px; padding-bottom:8px">
-                            <div style="width: 85%">
-                                <input type="text" name="search" id="" placeholder="Cari Disini" class="form-control">
+                    <form action="<?= base_url() ?>admin/categories/index" method="post">
+                        <div class="body" style="padding-top:8px; padding-bottom:8px">
+                            <p><small>Pencarian Berdasar Nama : </small></p>
+                            <div style="display:flex;">
+                                <div style="width: 85%">
+                                    <input type="text" name="search" id="" placeholder="Cari Disini" class="form-control">
+                                </div>
+                                <div style="width: 14%; margin-left:2%">
+                                    <input type="submit" value="Cari.." class="btn btn-success" style="width:100%;margin-top:2px">
+                                </div>
                             </div>
-                            <div style="width: 14%; margin-left:2%">
-                                <input type="submit" value="Cari.." class="btn btn-success" style="width:100%;margin-top:2px">
-                            </div>
-                       </div>
+                        </div>
                     </form>
                     </div>
                 </div>

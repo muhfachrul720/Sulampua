@@ -15,8 +15,11 @@ class M_user extends CI_Model {
         return $this->db->get_where($this->table_name, $where);
     }
 
-    public function display_user($number, $offset)
+    public function display_user($number, $offset, $like = null)
     {
+        if($like != null){
+            $this->db->like('username', $like);
+        }
         return $this->db->get($this->table_name, $number, $offset);
     }
 

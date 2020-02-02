@@ -21,11 +21,11 @@ class News extends Operator_Controller {
 
         $status = $this->session->userdata('status');
         if($status == 1){
-            $data['news'] = $this->m_news->display_news(10, $from)->result(); 
+            $data['news'] = $this->m_news->display_news(10, $from, null, $this->input->post('search'))->result(); 
         } else if ($status == 2){
-            $data['news'] = $this->m_news->display_news(10, $from, array('n.province_id' => $row->province_id))->result(); 
+            $data['news'] = $this->m_news->display_news(10, $from, array('n.province_id' => $row->province_id), $this->input->post('search'))->result(); 
         } else {
-            $data['news'] = $this->m_news->display_news(10, $from, array('n.user_id' => $this->session->userdata('username')))->result(); 
+            $data['news'] = $this->m_news->display_news(10, $from, array('n.user_id' => $this->session->userdata('username')), $this->input->post('search'))->result(); 
         }
 
         $this->load->view('_parts/admin_/header.php');

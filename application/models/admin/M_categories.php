@@ -10,8 +10,11 @@ class M_categories extends CI_Model {
         parent::__construct();
     }
 
-    public function display_categories($number = null, $offset=0)
+    public function display_categories($number = null, $offset=0, $like=null)
     {
+        if($like != null){
+            $this->db->like('name', $like);
+        }
         return $this->db->get($this->table_name, $number, $offset);
     }
 

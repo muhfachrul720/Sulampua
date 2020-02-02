@@ -10,14 +10,20 @@ class M_books extends CI_Model {
         parent::__construct();
     }
 
-    public function display_books($number = null, $offset=0, $where=null)
+    public function display_books($number = null, $offset=0, $where=null, $like = null)
     {
         $this->db->select('u.id as uid, u.username as uname, n.id as nid, n.name as nname, n.link as nlink, n.description as ndesc');
         $this->db->from($this->table_name.' as n');
         $this->db->join('table_user as u', 'n.user_id = u.id');
+
         if($where != null) {
             $this->db->where($where);
         }
+
+        if($like != null) {
+            $this->db->like('n.name', $like);
+        }
+
         $this->db->limit($number, $offset);
         $this->db->order_by('n.id', 'DESC');
         return $this->db->get();    

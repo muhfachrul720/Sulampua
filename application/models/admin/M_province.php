@@ -22,8 +22,11 @@ class M_province extends CI_Model {
         return $this->db->insert($this->table_name, $data);
     }
 
-    public function display_province($number, $offset)
+    public function display_province($number, $offset, $like = null)
     {
+        if($like != null){
+            $this->db->like('name', $like);
+        }
         return $this->db->get($this->table_name, $number, $offset);
     }
 

@@ -14,11 +14,10 @@ class Categories extends Admin_Controller {
     {
         $total = $this->m_categories->total_row()->num_rows();
         $from = $this->uri->segment(4);
-        echo $from;
         $this->pagination->initialize(cs_pagination('admin/categories/index', $total, 10));
-        
-        $data['cat'] = $this->m_categories->display_categories(10, $from)->result();
-        
+
+        $data['cat'] = $this->m_categories->display_categories(10, $from, $this->input->post('search'))->result();
+
         $this->load->view('_parts/admin_/header.php');
         $this->load->view('_parts/admin_/loader.php');
         $this->load->view('_parts/admin_/navbar.php');

@@ -13,11 +13,10 @@ class Province extends Admin_Controller {
     {
         $total = $this->m_province->total_row()->num_rows();
         $from = $this->uri->segment(4);
-        echo $from;
         $this->pagination->initialize(cs_pagination('admin/user/index', $total, 10));
         
-        $data['province'] = $this->m_province->display_province(10, $from)->result();
-
+        $data['province'] = $this->m_province->display_province(10, $from, $this->input->post('search'))->result();
+        
         $this->load->view('_parts/admin_/header.php');
         $this->load->view('_parts/admin_/loader.php');
         $this->load->view('_parts/admin_/navbar.php');

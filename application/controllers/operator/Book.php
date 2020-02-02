@@ -21,11 +21,11 @@ class Book extends Operator_Controller {
 
         $status = $this->session->userdata('status');
         if($status == 1){
-            $data['books'] = $this->m_books->display_books(10, $from)->result(); 
+            $data['books'] = $this->m_books->display_books(10, $from, null, $this->input->post('search'))->result(); 
         } else if ($status == 2){
-            $data['books'] = $this->m_books->display_books(10, $from, array('n.province_id' => $row->province_id))->result(); 
+            $data['books'] = $this->m_books->display_books(10, $from, array('n.province_id' => $row->province_id), $this->input->post('search'))->result(); 
         } else {
-            $data['books'] = $this->m_books->display_books(10, $from, array('n.user_id' => $this->session->userdata('username')))->result(); 
+            $data['books'] = $this->m_books->display_books(10, $from, array('n.user_id' => $this->session->userdata('username')), $this->input->post('search'))->result(); 
         }
 
         $this->load->view('_parts/admin_/header.php');
