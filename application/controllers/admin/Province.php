@@ -7,6 +7,7 @@ class Province extends Admin_Controller {
 	{
         parent::__construct();
         $this->load->model('admin/m_province');
+        $this->load->model('admin/m_user');
     }
 
     public function index()
@@ -17,6 +18,12 @@ class Province extends Admin_Controller {
         
         $data['province'] = $this->m_province->display_province(10, $from, $this->input->post('search'))->result();
         
+        $i = 0;
+        foreach($data['province'] as $da){
+            $row = $this->m_user->get_userprov($da->id)->num_rows();
+            $data['province'][$i++]->ttluser = $row;
+        };
+
         $this->load->view('_parts/admin_/header.php');
         $this->load->view('_parts/admin_/loader.php');
         $this->load->view('_parts/admin_/navbar.php');

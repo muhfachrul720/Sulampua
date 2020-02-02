@@ -17,6 +17,7 @@
                 <?php };?>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
@@ -36,6 +37,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -73,7 +75,7 @@
                                         </td>
                                     <td><?= $no++?></td>
                                     <td style="text-transform:capitalize"><?= $u->name?></td>
-                                    <td style="text-transform:capitalize">Null</td>
+                                    <td><?=$u->ttluser?></td>
                                         <td>
                                             <button value="<?= $u->id?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
                                         </td>

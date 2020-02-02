@@ -10,6 +10,13 @@ class M_user extends CI_Model {
         parent::__construct();
     }
 
+    public function get_userprov($where)
+    {
+        $this->db->select('id');
+        $this->db->where('province_id', $where);
+        return $this->db->get($this->table_name);
+    }
+
     public function check_user($where)
     {   
         return $this->db->get_where($this->table_name, $where);

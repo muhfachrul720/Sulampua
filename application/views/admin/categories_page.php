@@ -73,7 +73,7 @@
                                         </td>
                                         <td><?= $no++?></td>
                                         <td style="text-transform:capitalize"><?= $c->name?></td>
-                                        <td></td>
+                                        <td><?=$c->idk?></td>
                                         <td>
                                             <button value="<?= $c->id?>" type="button" class="btn btn-danger editBtn" data-toggle="modal" data-target="#defaultModal"><i class="material-icons">edit</i></button>
                                         </td>

@@ -18,6 +18,12 @@ class Categories extends Admin_Controller {
 
         $data['cat'] = $this->m_categories->display_categories(10, $from, $this->input->post('search'))->result();
 
+        $i = 0;
+        foreach($data['cat'] as $da){
+            $row = $this->m_indikator->get_idk($da->id)->num_rows();
+            $data['cat'][$i++]->idk = $row;
+        };
+        
         $this->load->view('_parts/admin_/header.php');
         $this->load->view('_parts/admin_/loader.php');
         $this->load->view('_parts/admin_/navbar.php');
