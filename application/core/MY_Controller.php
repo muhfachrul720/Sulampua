@@ -20,6 +20,18 @@ class Admin_Controller extends MY_Controller {
         }   
     }
 
+    public function viewLoad($file, $data = null)
+    {
+        
+        $this->load->view('_parts/admin_/header.php');
+        $this->load->view('_parts/admin_/loader.php');
+        $this->load->view('_parts/admin_/navbar.php');
+        $this->load->view('_parts/admin_/sidebar.php');
+        $this->load->view($file, $data);
+        $this->load->view('_parts/admin_/modal.php');
+        $this->load->view('_parts/admin_/script.php');
+    }
+
 }
 
 class User_Controller extends MY_Controller {

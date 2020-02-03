@@ -6,12 +6,12 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('admin/m_posting');
+		$this->load->model('admin/m_news');
 	}
 
 	public function index()
 	{	
-		$data['presult'] = $this->m_posting->display_post(3)->result();
+		$data['presult'] = $this->m_news->display_news(3)->result();
 		
 		$this->load->view('_parts/public_/header');
 		$this->load->view('_parts/public_/navbar');

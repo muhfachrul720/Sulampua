@@ -52,16 +52,15 @@
 							<div class="info-latest my-4">
 								<div class="row w-100">
 									<div class="col-lg-9">
-										<small><?= $res->cname?></small>
-										<div class="title"> <?= substr($res->pname, 0, 35)?> </div>
+										<small><?= $res->pname?></small>
+										<div class="title"> <?= substr($res->nname, 0, 35)?> </div>
 										<div class="summary">
-											<?= substr($res->pdesc, 0, 290)?>..
+											<?= substr($res->nsect, 0, 290)?>..
 										</div>
-										<div class="date"><?= $res->pdate?></div>
+										<div class="date"><?= $res->ndate?></div>
 									</div>
 									<div class="col-lg-3 p-0 m-auto" style="text-align:center;">
 										<button class="btn btn-theme-1 btn-sm my-2 w-75">More..</button>
-										<button class="btn btn-theme-1 btn-sm my-2 w-75"><i class="fas fa-download"></i> Download</button>
 									</div>
 								</div>
 							</div>

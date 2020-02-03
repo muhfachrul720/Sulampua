@@ -27,6 +27,12 @@
 
                 <?php if($this->session->userdata('status') == 1) {?>
                 <li>
+                    <a href="<?=base_url('admin/landing')?>">
+                        <i class="material-icons">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?=base_url('admin/user')?>">
                         <i class="material-icons">face</i>
                         <span>User</span>
@@ -40,7 +46,7 @@
                 </li>
                 <li>
                     <a href="<?=base_url('admin/categories')?>">
-                        <i class="material-icons">home</i>
+                        <i class="material-icons">label</i>
                         <span>Categories</span>
                     </a>
                 </li>

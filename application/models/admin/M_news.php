@@ -12,9 +12,10 @@ class M_news extends CI_Model {
 
     public function display_news($number = null, $offset=0, $where=null, $like = null)
     {
-        $this->db->select('u.id as uid, u.username as uname, n.id as nid, n.name as nname, n.image as nimg, n.date as ndate, n.section as nsect');
+        $this->db->select('u.id as uid, u.username as uname, n.id as nid, n.name as nname, n.image as nimg, n.date as ndate, n.section as nsect, p.name as pname');
         $this->db->from($this->table_name.' as n');
         $this->db->join('table_user as u', 'n.user_id = u.id');
+        $this->db->join('table_province as p', 'n.province_id = p.id');
 
         if($where != null) {
             $this->db->where($where);

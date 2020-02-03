@@ -81,12 +81,15 @@
 	});
 
 	// Initial fetch Post Ajax
-	function loadData(id, url, target) {
+	function loadData(id, url, target, keyword=null) {
+		var from = window.location.href;
+		var arr = from.split('/');
+		console.log(keyword);
 		$.ajax({
 			// url : "<?php //echo base_url();?>public_/data/fetch_post",
 			url : url,
 			method : "POST", 
-			data : {id:id},
+			data : {id:id, from:arr[7], keyword:keyword},
 			success:function(data){
 				$(target).html(data);
 				// $('#idkResult').html(data['idk']);
@@ -96,6 +99,11 @@
 			}
 		});
 	}
+
+	// Search Data
+	$('#searchBox').on('keyup', function(){
+		loadData($('#catName li:first-child input').val(), "<?= base_url();?>public_/data/fetch_post", "#resultPost", $(this).val());
+	})
 
 	// Chart JS With Looping
 	for(var i=1; i<=$('.graph').length; i++){

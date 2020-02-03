@@ -91,11 +91,17 @@ class M_posting extends CI_Model {
         return $this->db->update($this->table_name, $data);
     }
 
-    public function get_bycategories($where)
+    public function get_bycategories($where = null, $number, $offset=0, $like = null)
     {
         $this->db->select('id, name');
         $this->db->from($this->table_name);
-        $this->db->where('categories_id', $where);
+        if($like != null) {
+            $this->db->like('name', $like);
+        }
+        else {
+            $this->db->where('categories_id', $where);
+        }
+        $this->db->limit($number, $offset);
         return $this->db->get();
     }
 

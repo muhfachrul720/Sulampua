@@ -483,15 +483,34 @@ ul li {
 	background-color: rgb(244, 164, 96);
 }
 
-/* Css infografis */
-/* Testing */
-.bg-color {
-	/* background-color: aqua; */
-	width: 100%;
+.pagination li:hover {
+	border-left: solid 4px rgb(255, 255, 255) !important;
 }
 
-/* Infografis */
-.sect-infografis {}
+.pagination {
+	border: solid 1px white !important;
+
+}
+
+.pagination ul {
+	border: solid 1px white !important;
+}
+
+.pagination li {
+	color: rgb(255, 255, 255) !important;
+	border: solid 1px white !important;
+}
+
+span {
+	background-color: transparent !important;
+	color: #000000 !important;
+}
+
+.page-item .active .page-link {
+	background-color: transparent !important;
+	border-color: #ffffff !important;
+}
+
 
 .sect-infografis h1 {
 	line-height: 1.1;

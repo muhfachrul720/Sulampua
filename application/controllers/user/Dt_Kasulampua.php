@@ -24,7 +24,7 @@ class Dt_Kasulampua extends User_Controller {
         // Pagination 
         $total = $this->m_posting->total_row()->num_rows();
         $from = $this->uri->segment(4);
-        $this->pagination->initialize(cs_pagination('admin/dt_kasulampua/post', $total, 10));
+        $this->pagination->initialize(cs_pagination('user/dt_kasulampua/post', $total, 5));
         
         // List Categories
         $data['categories'] = $this->m_categories->display_categories()->result();
