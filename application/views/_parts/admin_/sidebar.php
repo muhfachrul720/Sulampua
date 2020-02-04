@@ -27,10 +27,22 @@
 
                 <?php if($this->session->userdata('status') == 1) {?>
                 <li>
-                    <a href="<?=base_url('admin/landing')?>">
+                    <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">home</i>
-                        <span>Home</span>
+                        <span>Landing</span>
                     </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="<?= base_url()?>admin/landing/display_graph">
+                                <span>Graph</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <span>Banner</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="<?=base_url('admin/user')?>">

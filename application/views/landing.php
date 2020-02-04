@@ -119,59 +119,86 @@
 		<!-- End of Data Terbaru -->
 
 		<!-- Graph -->
-		<div class="sect-about graph py-4">
+		<?php 
+		$no = 1;
+		foreach($gresult as $g) {?>
+			<div class="sect-about graph py-4">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-5 chart-info" style="text-align:left">
-						<h5>Grafik Data Terbaru</h5>
-						<h1>Tingkat Partisipasi Angkatan Kerja Tahun 2018</h1>
+						<h5>Grafik</h5>
+						<h1><?= $g->name?></h1>
 						<div class="date">
 							<div class="info-bar"></div>
-							2019-06-14 00:03:12
+							<?= $g->date?>
 						</div>
 					</div>
 					<div class="col-lg-7 chart-bar">
-						<canvas id="myChart1"></canvas>
+						<canvas id="myChart<?=$no++?>"></canvas>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="sect-about graph py-4">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5 chart-info" style="text-align:left">
-						<h5>Grafik Data Terbaru</h5>
-						<h1>Tingkat Partisipasi Angkatan Kerja Tahun 2018</h1>
-						<div class="date">
-							<div class="info-bar"></div>
-							2019-06-14 00:03:12
-						</div>
-					</div>
-					<div class="col-lg-7 chart-bar">
-						<canvas id="myChart2"></canvas>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="sect-about graph py-4">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5 chart-info" style="text-align:left">
-						<h5>Grafik Data Terbaru</h5>
-						<h1>Tingkat Partisipasi Angkatan Kerja Tahun 2018</h1>
-						<div class="date">
-							<div class="info-bar"></div>
-							2019-06-14 00:03:12
-						</div>
-					</div>
-					<div class="col-lg-7 chart-bar">
-						<canvas id="myChart3"></canvas>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php };?>
 		<!-- End of Graph -->
-
+		<script>
+			<?php 
+				$no = 1;
+				foreach ($gresult as $g) {?>
+				var ctx = document.getElementById("myChart<?= $no++?>").getContext('2d');
+				var myChart = new Chart(ctx, {
+				type : 'bar',
+				data : {
+					labels : ["Kalimantan Selatan", "Kalimantan Timur", "Kalimanta Barat", "Kalimantan Utara", "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Selatan", "Sulawesi Tenggara", "Gorontalo", "Sulawesi Barat", "Maluku", "Papua", "Papua Barat"],
+					datasets : [{
+						label : '# of Votes',
+						data : ["<?= $g->prov_kalsel?>", "<?= $g->prov_kaltim?>", "<?= $g->prov_kalbar?>", "<?= $g->prov_kalut?>", "<?= $g->prov_sulut?>", "<?= $g->prov_sulteng?>", "<?= $g->prov_sulsel?>", "<?= $g->prov_sultra?>", "<?= $g->prov_gorontalo?>", "<?= $g->prov_sulbar?>", "<?= $g->prov_maluku?>", "<?= $g->prov_papua?>", "<?= $g->prov_papua_barat?>"],
+						backgroundColor : [
+							'rgba(255, 99, 132, 0.2)',
+							'rgba(54, 162, 235, 0.2)',
+							'rgba(255, 206, 86, 0.2)',
+							'rgba(75, 192, 192, 0.2)',
+							'rgba(153, 102, 255, 0.2)',
+							'rgba(255, 159, 64, 0.2)'
+						],
+						borderColor : [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)',
+							'rgba(75, 192, 192, 1)',
+							'rgba(153, 102, 255, 1)',
+							'rgba(255, 159, 64, 1)'
+						],
+						borderWidth : 1
+					}]	
+				},
+				options : {
+					legend :{
+						display : false
+					},
+					scales: {
+						xAxes: [{
+							gridLines: {
+								display:false
+							},
+							stacked : false,
+							begitAtZero : true,
+							ticks : {
+								autoSkip:false,
+								maxRotation: 90,
+								minRotation: 90
+							}
+						}],
+						yAxes: [{
+							gridLines: {
+								display:false
+							}   
+						}]
+					}
+				}
+			});
+			<?php };?>
+		</script>
 		<!-- About -->
 		<div class="sect-about about-us py-4">
 			<div class="img-container img-left">

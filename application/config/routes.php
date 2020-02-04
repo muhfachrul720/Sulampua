@@ -10,3 +10,4 @@ $route['backend'] = 'auth';
 $route['dashboard_admin'] = 'admin/home';
 $route['dashboard_user'] = 'user/home';
 $route['dashboard_operator'] = 'operator/home';
+$route['dashboard_graph'] = 'admin/landing/display_data';

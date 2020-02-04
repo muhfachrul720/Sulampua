@@ -26,6 +26,10 @@ ul li {
 	list-style-type: none;
 }
 
+.bn-overlay span {
+	color:white !important;	
+}
+
 .txt-center {
 	text-align: center;
 }

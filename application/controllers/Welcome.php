@@ -7,11 +7,13 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin/m_news');
+		$this->load->model('admin/m_landing');
 	}
 
 	public function index()
 	{	
 		$data['presult'] = $this->m_news->display_news(3)->result();
+		$data['gresult'] = $this->m_landing->get_graph()->result();
 		
 		$this->load->view('_parts/public_/header');
 		$this->load->view('_parts/public_/navbar');
