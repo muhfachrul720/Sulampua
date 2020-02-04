@@ -39,7 +39,7 @@
                 <form class="form-inline ml-auto">
                     <input class="mr-sm-2 cs-searchbox" type="search" placeholder="Cari..." aria-label="Search">
                 </form>
-                <button href="nav-link" id="searchButton" style="color:#ffffff; font-size:18px; border:none; background-color:transparent"><i class="fas fa-search"></i></button>
+                <!-- <button href="nav-link" id="searchButton" style="color:#ffffff; font-size:18px; border:none; background-color:transparent"><i class="fas fa-search"></i></button> -->
             </div>
         </nav>
     </div>

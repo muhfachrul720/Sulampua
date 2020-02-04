@@ -1,88 +1,28 @@
-<br><br>
-<div class="container">
+<div class="container" >
+    <div class="row sect-data_ks my-4">
+        <div class="col-lg-12">
+        <form action="<?= base_url()?>public_/buku/index" method="post">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-SulawesiBarat-list" data-toggle="list" href="#list-SulawesiBarat" role="tab" aria-controls="home">Kalimantan</a>
-                        <a class="list-group-item list-group-item-action" id="list-SulawesiTengah-list" data-toggle="list" href="#list-SulawesiTengah" role="tab" aria-controls="home">Sulawesi</a>
-                        <a class="list-group-item list-group-item-action" id="list-SulawesiSelatan-list" data-toggle="list" href="#list-SulawesiSelatan" role="tab" aria-controls="home">Maluku</a>
-                        <a class="list-group-item list-group-item-action" id="list-SulawesiTenggara-list" data-toggle="list" href="#list-SulawesiTenggara" role="tab" aria-controls="home">Papua</a>
-                    </div>
+                <div class="col-sm-4">
+                    <h2>Link Buku Buku Terbaru</h2>
                 </div>
-                <div class="col-lg-9">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="list-SulawesiBarat" role="tabpanel" aria-labelledby="list-SulawesiBarat-list">
-                            <h2>Buku Digital Kalimantan</h2>
-                            <hr>
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Kalimantan Selatan</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Kalimantan Tengah</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Kalimantan Timur</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Kalimantan Utara</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Kalimantan Barat</a>
-                                </li>
-                              </ul>
-                        </div>
-                        <div class="tab-pane fade" id="list-SulawesiSelatan" role="tabpanel" aria-labelledby="list-SulawesiSelatan-list">
-                            <h2>Buku Digital Sulawesi</h2>
-                            <hr>
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Sulawesi Utara</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Sulawesi Tengah</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Sulawesi Selatan</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Sulawesi Tenggara</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Sulawesi Barat</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Gorontalo</a>
-                                </li>
-                              </ul>
-                        </div>
-                        <div class="tab-pane fade" id="list-SulawesiTengah" role="tabpanel" aria-labelledby="list-SulawesiTengah-list">
-                            <h2>Buku Digital Maluku</h2>
-                            <hr>
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Maluku</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Maluku Utara</a>
-                                </li>
-                              </ul>
-                        </div>
-                        <div class="tab-pane fade" id="list-SulawesiTenggara" role="tabpanel" aria-labelledby="list-SulawesiTenggara-list">
-                            <h2>Buku Digital Papua</h2>
-                            <hr>
-                            <ul class="list-group">
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Papua</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="list-group-item list-group-item-action">Papua Barat</a>
-                                </li>
-                              </ul>
-                        </div>
-                    </div>
+                <div class="col-sm-6">
+                    <input type="text" name="search" class="form-control mb-4" placeholder="Cari Buku Disini..">
                 </div>
-                    
+                <div class="col-sm-2">
+                    <button class="btn w-100" style="background-color:#f1a059; color:white">Cari</button>
+                </div>
             </div>
+        </form>
+            <table class="table-book" style="width:100%;">
+                <tr>
+                    <?php foreach($buku as $b) {?>
+                        <td width="90%"><?= $b->nname?></td>
+                        <td style="text-align:center"><a target="_blank" href="<?= $b->nlink?>" class="btn btn-sm btn-primary">Links</a></td>
+                    <?php };?>
+                </tr>
+            </table>
+            <?= $this->pagination->create_links()?>
+        </div>
+    </div>
 </div>
-<br>

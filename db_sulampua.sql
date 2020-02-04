@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2020 at 01:43 AM
+-- Generation Time: Feb 04, 2020 at 03:52 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.2.20
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_sulampua`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_books`
+--
+
+CREATE TABLE `table_books` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `link` tinytext NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_books`
+--
+
+INSERT INTO `table_books` (`id`, `name`, `description`, `link`, `user_id`, `province_id`) VALUES
+(6, 'PRDB Negara China', '', 'https://www.youtube.com/watch?v=6mtZTMPghNg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -106,7 +128,46 @@ INSERT INTO `table_file` (`id`, `province`, `tahun_2014`, `tahun_2015`, `tahun_2
 (177, 'Maluku', 0.33, 0.34, 0.34, 0.32, 0.32, 0.32, 17),
 (178, 'Maluku Utara', 0.32, 0.29, 0.31, 0.33, 0.33, 0.33, 17),
 (179, 'Papua Barat', 0.32, 0.29, 0.31, 0.33, 0.33, 0.33, 17),
-(180, 'Papua', 0.46, 0.39, 0.4, 0.4, 0.4, 0.4, 17);
+(180, 'Papua', 0.46, 0.39, 0.4, 0.4, 0.4, 0.4, 17),
+(311, 'Cth: Prov Papua', 23.4, 24.4, 25.2, 25.6, 25.6, 25.6, 55),
+(312, 'Cth: Prov Papua', 23.4, 24.4, 25.2, 25.6, 25.6, 25.6, 54),
+(313, 'Cth: Prov Papua', 23.4, 24.4, 25.2, 25.6, 25.6, 25.6, 53),
+(314, 'Cth: Prov Papua', 23.4, 24.4, 25.2, 25.6, 25.6, 25.6, 52);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_graph`
+--
+
+CREATE TABLE `table_graph` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `prov_kalsel` float NOT NULL DEFAULT 0,
+  `prov_kalteng` float NOT NULL DEFAULT 0,
+  `prov_kaltim` float NOT NULL DEFAULT 0,
+  `prov_kalbar` float NOT NULL DEFAULT 0,
+  `prov_kalut` float NOT NULL DEFAULT 0,
+  `prov_sulut` float NOT NULL DEFAULT 0,
+  `prov_sulteng` float NOT NULL DEFAULT 0,
+  `prov_sulsel` float NOT NULL DEFAULT 0,
+  `prov_sultra` float NOT NULL DEFAULT 0,
+  `prov_gorontalo` float NOT NULL DEFAULT 0,
+  `prov_sulbar` float NOT NULL DEFAULT 0,
+  `prov_maluku` float NOT NULL DEFAULT 0,
+  `prov_papua` float NOT NULL DEFAULT 0,
+  `prov_papua_barat` float NOT NULL DEFAULT 0,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_graph`
+--
+
+INSERT INTO `table_graph` (`id`, `name`, `prov_kalsel`, `prov_kalteng`, `prov_kaltim`, `prov_kalbar`, `prov_kalut`, `prov_sulut`, `prov_sulteng`, `prov_sulsel`, `prov_sultra`, `prov_gorontalo`, `prov_sulbar`, `prov_maluku`, `prov_papua`, `prov_papua_barat`, `date`) VALUES
+(1, 'Angka Kenaikan Penduduk', 2.4, 0, 23, 2.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-02-04 09:39:53'),
+(2, 'Rasio Gini', 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-02-04 09:39:54'),
+(3, 'Mari Ganti Judunya', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-02-04 09:39:54');
 
 -- --------------------------------------------------------
 
@@ -143,6 +204,31 @@ INSERT INTO `table_indikator` (`id`, `name`, `description`, `cat_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `table_news`
+--
+
+CREATE TABLE `table_news` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `section` longtext NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_news`
+--
+
+INSERT INTO `table_news` (`id`, `name`, `section`, `image`, `user_id`, `province_id`, `date`) VALUES
+(10, 'Aqua Edelweiss_ KontriN1', '<p>Tehbotol Sosro Original</p>\r\n', 'Aqua_Edelweiss__KontriN1.jpg', 31, 2, '2020-01-31 08:31:52'),
+(11, 'Deli An Weiss', '<p>Kilang Minyak Duo Ramah</p>\r\n', 'Deli_An_Weiss.jpg', 32, 2, '2020-01-31 08:34:29'),
+(12, 'Rasio Gini September', '<p>Miturut hukum Islam, sawijining muslim ditindakake supaya ora nglara utawa mateni kucing, miturut hadits sahih sing dicritakake dening Imam Muslim saka critane Abdullah bin Umar lan Abu Hurairah. Hukum sing larang lan tuku kucing uga diadili miturut hadits Nabi Muhammad lan aturan saka hukum (al-qawa&#39;id al-kulliyah). Hadits saka Muhammad, ditulis saka kanca Jabir bin Abdillah yen Nabi ngalangi mangan kucing lan nglarang mangan saka ngedol rega kucing.</p>\r\n', 'Rasio_Gini_September.jpg', 1, 2, '2020-02-04 09:44:25');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `table_post`
 --
 
@@ -154,9 +240,42 @@ CREATE TABLE `table_post` (
   `status` int(10) UNSIGNED DEFAULT NULL,
   `date` datetime NOT NULL,
   `user_id` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL,
   `file_name` varchar(255) DEFAULT NULL,
   `file_img` varchar(255) NOT NULL DEFAULT 'notfound.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_post`
+--
+
+INSERT INTO `table_post` (`id`, `name`, `description`, `categories_id`, `status`, `date`, `user_id`, `province_id`, `file_name`, `file_img`) VALUES
+(49, 'Kalimantan Membara', 'Kalimantan Ditengah Panas Terik Matahari', 61, NULL, '2020-01-31 08:39:55', 33, 3, NULL, 'notfound.png'),
+(50, 'Sultra Kebanjiran', 'Ini Postingan Milik Sultra', 59, NULL, '2020-01-31 08:40:35', 30, 2, NULL, 'notfound.png'),
+(51, 'saddsa', 'sadsa', 59, NULL, '2020-02-03 01:20:39', 1, 2, NULL, 'notfound.png'),
+(52, 'dsadsadasdas', 'sadsadsaa', 59, 1, '2020-02-03 01:20:53', 1, 2, 'db52.xls', 'notfound.png'),
+(53, 'sdsadas', 'sadasdasdsa', 59, 1, '2020-02-03 01:20:59', 1, 2, 'db53.xls', 'notfound.png'),
+(54, 'sadsadasd', 'sdasdsad', 59, 1, '2020-02-03 01:21:08', 1, 2, 'db54.xls', 'notfound.png'),
+(55, 'sadasdas', 'sadasdasdas', 59, 1, '2020-02-03 01:21:14', 1, 2, 'db55.xls', 'notfound.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_province`
+--
+
+CREATE TABLE `table_province` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_province`
+--
+
+INSERT INTO `table_province` (`id`, `name`) VALUES
+(2, 'Sulawesi Tenggara'),
+(3, 'Kalimantan tengah');
 
 -- --------------------------------------------------------
 
@@ -168,21 +287,31 @@ CREATE TABLE `table_user` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL,
+  `province_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `table_user`
 --
 
-INSERT INTO `table_user` (`id`, `username`, `password`, `status`) VALUES
-(1, 'admin', '0192023a7bbd73250516f069df18b500', 1),
-(10, 'Biskuit_Kelapa', 'e46aec2d0d8c8d888cceaed3a924abcc', 2),
-(13, 'ILoveAimer', '2853e7974c4c19e4b7675ccf9fa2744a', 2);
+INSERT INTO `table_user` (`id`, `username`, `password`, `status`, `province_id`) VALUES
+(1, 'admin', '0192023a7bbd73250516f069df18b500', 1, 2),
+(30, 'Admin_Sultra', '8be5c9aed3269627313674ca6cb1fd31', 2, 2),
+(31, 'Kontributor_sultra1', '09ff0f4ebab7fb6a075b65c2ad6d8ba4', 3, 2),
+(32, 'Kontributor_sultra2', '6527a9c9d7cd110cb8216b576079506c', 3, 2),
+(33, 'admin_kalimantan', '98d1007ee8f5a55356a06c1767603321', 2, 3),
+(35, 'admin2', '3fc0a7acf087f549ac2b266baf94b8b1', 2, 3);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `table_books`
+--
+ALTER TABLE `table_books`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `table_categories`
@@ -197,9 +326,21 @@ ALTER TABLE `table_file`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_graph`
+--
+ALTER TABLE `table_graph`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `table_indikator`
 --
 ALTER TABLE `table_indikator`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `table_news`
+--
+ALTER TABLE `table_news`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -209,6 +350,12 @@ ALTER TABLE `table_post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `categories_id` (`categories_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `table_province`
+--
+ALTER TABLE `table_province`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `table_user`
@@ -221,34 +368,58 @@ ALTER TABLE `table_user`
 --
 
 --
+-- AUTO_INCREMENT for table `table_books`
+--
+ALTER TABLE `table_books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `table_categories`
 --
 ALTER TABLE `table_categories`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `table_file`
 --
 ALTER TABLE `table_file`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=315;
+
+--
+-- AUTO_INCREMENT for table `table_graph`
+--
+ALTER TABLE `table_graph`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_indikator`
 --
 ALTER TABLE `table_indikator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `table_news`
+--
+ALTER TABLE `table_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `table_post`
 --
 ALTER TABLE `table_post`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT for table `table_province`
+--
+ALTER TABLE `table_province`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `table_user`
 --
 ALTER TABLE `table_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Constraints for dumped tables

@@ -19,7 +19,7 @@ class Landing extends Admin_Controller {
         $this->load->view('_parts/admin_/navbar.php');
         $this->load->view('_parts/admin_/sidebar.php');
         $this->load->view('admin/graph_management', $data);
-        $this->load->view('_parts/admin_/script.php', $data['gresult']);
+        $this->load->view('_parts/admin_/script.php');
     }
 
     public function update_graph()

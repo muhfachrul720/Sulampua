@@ -14,7 +14,7 @@ class Province extends Admin_Controller {
     {
         $total = $this->m_province->total_row()->num_rows();
         $from = $this->uri->segment(4);
-        $this->pagination->initialize(cs_pagination('admin/user/index', $total, 10));
+        $this->pagination->initialize(cs_pagination('admin/province/index', $total, 10));
         
         $data['province'] = $this->m_province->display_province(10, $from, $this->input->post('search'))->result();
         

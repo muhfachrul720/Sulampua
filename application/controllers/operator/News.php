@@ -15,7 +15,7 @@ class News extends Operator_Controller {
         // Pagination 
         $total = $this->m_news->total_row()->num_rows();
         $from = $this->uri->segment(4);
-        $this->pagination->initialize(cs_pagination('admin/dt_kasulampua/post', $total, 10));
+        $this->pagination->initialize(cs_pagination('operator/news/index', $total, 10));
         
         $row = $this->m_user->check_user(array('id' => $this->session->userdata('username')))->row();
 

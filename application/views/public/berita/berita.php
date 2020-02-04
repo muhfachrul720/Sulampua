@@ -1,67 +1,67 @@
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-lg-9 pr-5">
-              <div class="panel panel-default">
-               <div class="panel-body">
-                  <h3>Membudayakan Eco Office di BPS Provinsi Sulawesi Tenggara</h3>
-                    <div class="info-meta">
-                        <ul class="coba" style="display:inline;">
-                            <li><i class="fa fa-clock"></i>Jan 31, 2020</li>   
-                            <li><i class="fa fa-user"></i> Diposting oleh BPS Sultra</li> 
-                        </ul>
-                        
-                    </div>
-                  <hr>
-                  
+            <form action="<?= base_url()?>public_/berita/index" method="post">
+            <div class="row">
+                <div class="col-sm-10">
+                    <input type="text" name="search" class="form-control mb-4" placeholder="Cari Berita Disini..">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn w-100" style="background-color:#f1a059; color:white">Cari</button>
+                </div>
+            </div>
+            </form>
+            <div class="panel panel-default">
+               <?php foreach($news as $n) {?>
+                <div class="panel-body">
+                    <h3><?= $n->nname?></h3>
+                        <div class="info-meta">
+                            <ul class="coba" style="display:inline;">
+                                <li><i class="fa fa-clock"></i><?= $n->ndate?></li>   
+                                <li><i class="fa fa-user"></i> <?= $n->uname?></li> 
+                            </ul>
+                            
+                        </div>
+                    <hr>
                     <div class = "media">
-                       <a class = "pull-left" href = "#">
-                          <img class = "media-object " src = "<?= base_url()?>assets/img/no-photo.png">
-                       </a>
-                       <div class = "media-body pr-3">
-                          <p>BPS Provinsi Sulawesi Tenggara mencanangkan Eco Office dalam setiap kegiatan perkantoran sehari-hari. Pemberlakuan Eco office ini lingkungan tersebut akan berdampak pada semakin efisiennya pengeluaran-pengeluaran rutin yang secara langsung dapat berdampak secara ekonomis.
-                          </p> 
-                          <p>Perilaku Eco Office ini diantaranya adalah mematikan lampu yang tidak digunakan dan memaksimalkan pencahayaan matahari, mematikan komputer dan peralatan elektronik yang tidak digunakan..
-                         </p>
-                       </div>
-                       
+                    <a class = "pull-left" href = "#">
+                        <img class = "media-object " src = "<?= base_url()?>upload/data_img/<?= $n->nimg?>">
+                    </a>
+                    <div class = "media-body pr-3">
+                        <p><?= substr($n->nsect, 3, 655)?>
+                        </p> 
+                    </div>
+                    
                     </div>
                     <p style="text-align:right;">
-                            <a href="<?=base_url('public_/berita/detail_berita')?>">
+                            <a href="<?=base_url('public_/berita/detail_berita/')?><?=$n->nid?>">
                                 <button class="btn btn-primary">Selengkapnya</button>
                             </a>
                         </p>
                         
                     <hr>
                </div>
+               <?php };?>
             </div>
+            <?= $this->pagination->create_links()?>
         </div>       
         <div class="col-lg-3 pt-100"><br>
             <div class="panel panel-default">
                <div class="panel-heading"><h4 class="text-center">Berita Terbaru</h4></div>
                <div class="panel-body">
-                    <div class="recent">
-                        <a href="#"><img class="img-responsive" src="<?= base_url()?>assets/img/berita1.jpg" alt="" /></a>                
+                    <?php foreach($latestnews as $l) {?>
+                    <div class="recent" style="border:none">
+                        <a href="#"><img class="img-responsive" src="<?= base_url()?>upload/data_img/<?= $l->nimg?>" alt="" /></a>                
                         <div class="info-meta">
                             <ul class="list-inline">
-                                <li><i class="fa fa-clock"></i> Jan 31, 2020 </a></li>
+                                <li><i class="fa fa-clock"></i> <?= $l->ndate?> </a></li>
                             </ul>
                         </div>
                         <h4>
-                            <a href="">Sensus Penduduk 2020 Bisa Online, Kepesertaan Ditarget Moderat</a>
+                            <a href="<?=base_url('public_/berita/detail_berita/')?><?=$l->nid?>"><?= $l->nname?></a>
                         </h4>
                     </div>
-                    
-                    <div class="recent">
-                        <a href="#"><img class="img-responsive" src="<?= base_url()?>assets/img/berita1.jpg" alt="" /></a>                           
-                        <div class="info-meta">
-                            <ul class="list-inline">
-                                <li><i class="fa fa-clock"></i> Jan 31, 2020</li>
-                            </ul>
-                        </div>
-                        <h4 class="entry-title">
-                            <a href="">Buka Rakor Sensus BPS 2020, Wakil Wali Kota Langsa Minta Jangan Ada Lagi Perbedaan Data</a>
-                        </h4>
-                    </div><!--recent-->
+                    <?php };?>
                 </div>
             </div>      
         </div>     

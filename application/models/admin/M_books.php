@@ -54,9 +54,9 @@ class M_books extends CI_Model {
         return $this->db->get($this->table_name);
     }
 
-    public function update_old($data, $where)
-    {
-        $this->db->where('id', $where);
-        return $this->db->update($this->table_name, $data);
-    }
+public function update_old($data, $where)
+{
+    $this->db->where('id', $where);
+    return $this->db->update($this->table_name, $data);
+}
 }

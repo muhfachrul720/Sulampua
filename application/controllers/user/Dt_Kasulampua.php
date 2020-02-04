@@ -93,7 +93,7 @@ class Dt_Kasulampua extends User_Controller {
 
         if($this->form_validation->run() == FALSE){
             $this->session->set_flashdata('alert', 'Gagal Menambah Postingan');
-            redirect('admin/dt_kasulampua/post');
+            redirect('user/dt_kasulampua/post');
         }
         else {
             $data = array(
@@ -196,7 +196,7 @@ class Dt_Kasulampua extends User_Controller {
             if (!$this->upload->do_upload('userfile'))
             {   
                 $this->session->set_flashdata('alert', $this->upload->display_errors());
-                redirect('admin/dt_kasulampua/file/'.$this->input->post('postid'));
+                redirect('user/dt_kasulampua/file/'.$this->input->post('postid'));
             }
             else
             {
@@ -215,11 +215,11 @@ class Dt_Kasulampua extends User_Controller {
                     $this->m_posting->update_status($status, $this->input->post('postid'));
 
                     $this->session->set_flashdata('alert', 'Berhasil Mengupload File');
-                    redirect('admin/dt_kasulampua/file/'.$this->input->post('postid'));
+                    redirect('user/dt_kasulampua/file/'.$this->input->post('postid'));
                 }
                 else {
                     $this->session->set_flashdata('alert', 'Gagal Mengupload File');
-                    redirect('admin/dt_kasulampua/file/'.$this->input->post('postid'));
+                    redirect('user/dt_kasulampua/file/'.$this->input->post('postid'));
                 }
             }
     }
@@ -258,11 +258,11 @@ class Dt_Kasulampua extends User_Controller {
                 $this->m_posting->update_status($status, $this->input->post('postid'));
 
                 $this->session->set_flashdata('alert', 'Berhasil Mengupload File');
-                redirect('admin/dt_kasulampua/file/'.$this->input->post('postid'));
+                redirect('user/dt_kasulampua/file/'.$this->input->post('postid'));
             }
             else {
                 $this->session->set_flashdata('alert', 'Gagal Mengupload File');
-                redirect('admin/dt_kasulampua/file/'.$this->input->post('postid'));
+                redirect('user/dt_kasulampua/file/'.$this->input->post('postid'));
             }
         }
 

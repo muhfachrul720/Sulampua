@@ -22,7 +22,7 @@
                             </div>
                             <?php if($check != null) {?>
                             <div class="right-section" style="width:50%;text-align:right">
-                            <?php echo form_open_multipart(base_url().'admin/dt_kasulampua/change_file');?>
+                            <?php echo form_open_multipart(base_url().'user/dt_kasulampua/change_file');?>
                             <input type="hidden" value="<?= $postid ?>" name="postid">
                             <p style="text-align:right;" id="fileLabel"><small>No File Selected</small></p>
                             <input type="file" name="userfile" id="upFile" class="UpFile" required accept=".xls, .xlsx" style="display:none" />
@@ -83,7 +83,7 @@
                                     <h3>Sepertinya Data Yang Anda Cari Tidak Ditemukan ...</h3>
                                     <br>
                                     <small id="fileLabel2">No File Selected</small>
-                                <?php echo form_open_multipart(base_url().'admin/dt_kasulampua/do_upload');?>
+                                <?php echo form_open_multipart(base_url().'user/dt_kasulampua/do_upload');?>
                                     <input type="hidden" value="<?= $postid ?>" name="postid">
                                     <label class="btn btn-success btn-lg" style="cursor:pointer" for="fileUpload">Pilih File</label>
                                     <input type="file" name="userfile" id="fileUpload" class="UpFile" required accept=".xls, .xlsx" style="display:none" />

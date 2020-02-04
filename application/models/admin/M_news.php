@@ -57,7 +57,7 @@ class M_news extends CI_Model {
 
     public function get_dataindividual($where)
     {
-        $this->db->select('id, name, section, image');
+        $this->db->select('id, name, section, image, date');
         $this->db->where('id', $where);
         return $this->db->get($this->table_name);
     }
