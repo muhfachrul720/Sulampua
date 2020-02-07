@@ -1,7 +1,7 @@
 	<!-- Banner -->
 		<div class="banner">
 			<div class="bn-img-plc">
-				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/banner.jpg)"></div>
+				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/kalimantan.jpg)"></div>
 				<div class="bn-overlay">
 					<p> 
 						Kalimantan merupakan sebuah pulau di Indonesia yang belum banyak dijelajahi oleh wisatawan namun memiliki banyak keunikan dan daya tarik termasuk juga kaya dengan warisan budaya.
@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="bn-img-plc">
-				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/banner_3.jpg)"></div>
+				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/sulawesi1.jpg)"></div>
 				<div class="bn-overlay">
 					<p> 
 					Nama Sulawesi diperkirakan berasal dari bahasa lokal, Sula yang artinya pulau dan Mesi yang berarti besi. Nama ini digunakan karena adanya perdagangan bijih besi, hasil produksi tambang-tambang di sekitar Danau Matano, 
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="bn-img-plc">
-				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/banner_4.jpg)"></div>
+				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/maluku1.jpg)"></div>
 				<div class="bn-overlay">
 					<p> 
 					Maluku adalah sebuah provinsi yang meliputi bagian selatan Kepulauan Maluku, Indonesia, Mesir menyebutkan adanya negeri dari timur yang sangat kaya, merupakan tanah surga, dengan hasil alam berupa cengkih, emas dan mutiara, daerah itu tak lain dan tak bukan adalah tanah Maluku
@@ -28,7 +28,7 @@
 				</div>
 			</div>
 			<div class="bn-img-plc">
-				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/banner.jpg)"></div>
+				<div class="bn-img" style="background-image:url(<?= base_url()?>assets/img/papua6.jpg)"></div>
 				<div class="bn-overlay">
 					<p>
 					Provinsi Papua memiliki luas sekitar 421.981 km2, pulau Papua berada di ujung timur dari wilayah Indonesia, dengan potensi sumber daya alam yang bernilai ekonomis dan strategis, dan telah mendorong bangsa-bangsa asing untuk menguasai pulau Papua. 
@@ -202,7 +202,7 @@
 		<!-- About -->
 		<div class="sect-about about-us py-4">
 			<div class="img-container img-left">
-				<img src="<?= base_url()?>assets/img/Geo.jpg" alt="">
+				<img src="<?= base_url()?>assets/img/aerial.jpg" alt="">
 			</div>
 			<div class="container">
 				<div class="row">
@@ -211,15 +211,16 @@
 					<div class="col-lg-6 about-article themed my-4">
 						<div class="col-lg-12 p-0" id="geografis">
 							<div class="title themed mb-3"><h3>Letak Geografis</h3></div>
-							<p>Sulampua terdiri dari tiga pulau, yakni Pulau Sulawesi, Maluku dan Papua. Pulau Sulawesi terdiri dari enam provinsi, yakni Provinsi Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara, Sulawesi Barat dan Gorontalo. Sementara Kepulauan Maluku terdiri dari dua provinsi, yakni Provinsi Maluku dan Maluku Utara. Sedangkan Pulau Papua terdiri dari dua provinsi, yakni Provinsi Papua dan Papua Barat.</p> 
+							<p style="font-size:14px"> Sulampua terdiri dari 4 pulau, yakni Pulau Kalimantan, Sulawesi dan Maluku Serta Papua. Pulau Kalimantan Terdiri dari 5 Provinsi, Kalimantan Selaatan, Kalimantan Barat, Kalimantan Timur, Kalimantan Tengah, Kalimantan Utara, sPulau Sulawesi terdiri dari enam provinsi, yakni Provinsi Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara, Sulawesi Barat dan Gorontalo. Sementara Kepulauan Maluku terdiri dari dua provinsi, yakni Provinsi Maluku dan Maluku Utara. Sedangkan Pulau Papua terdiri dari dua provinsi, yakni Provinsi Papua dan Papua Barat.</p> 
 						</div>
 						<div class="col-lg-12 p-0" id="about">
 							<div class="title themed mb-3"><h3>Keadaan Penduduk</h3></div>
-							<p>Sulampua terdiri dari tiga pulau, yakni Pulau Sulawesi, Maluku dan Papua. Pulau Sulawesi terdiri dari enam provinsi, yakni Provinsi Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara, Sulawesi Barat dan Gorontalo. Sementara Kepulauan Maluku terdiri dari dua provinsi, yakni Provinsi Maluku dan Maluku Utara. Sedangkan Pulau Papua terdiri dari dua provinsi, yakni Provinsi Papua dan Papua Barat.</p> 
+							<p style="font-size:14px">Jumlah penduduk Indonesia sebanyak 264 juta jiwa dan 10% (26,56 Juta) diantaranya tinggal di kawasan Sulampua. Provinsi Sulawesi Selatan merupakan provinsi yang memiliki jumlah penduduk terbanyak yaitu 32,82 persen dari keseluruhan penduduk di wilayah Sulampua. Sedangkan provinsi yang memiliki penduduk paling sedikit adalah Provinsi Papua Barat sebesar 3,51 persen. 								
+							</p> 
 						</div>
 						<div class="col-lg-12 p-0" id="people">
 							<div class="title themed mb-3"><h3>Ketenagakerjaan</h3></div>
-							<p>Sulampua terdiri dari tiga pulau, yakni Pulau Sulawesi, Maluku dan Papua. Pulau Sulawesi terdiri dari enam provinsi, yakni Provinsi Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara, Sulawesi Barat dan Gorontalo. Sementara Kepulauan Maluku terdiri dari dua provinsi, yakni Provinsi Maluku dan Maluku Utara. Sedangkan Pulau Papua terdiri dari dua provinsi, yakni Provinsi Papua dan Papua Barat.</p> 
+							<p style="font-size:14px">Angkatan kerja menggambarkan jumlah penduduk usia kerja (15 tahun ke atas) yang aktif dalam perekonomian, baik yang sudah bekerja, sementara tidak bekerja dan menganggur. Jumlah angkatan kerja yang tersedia di wilayah Sulampua sebanyak 12,7 juta jiwa, yang terbesar berada di Provinsi Sulawesi Selatan yaitu 3,9 juta jiwa, kemudian disusul oleh Provinsi Papua (1,78 juta jiwa) dan Provinsi Sulawesi Tengah (1,5 juta jiwa). Sedangkan jumlah angkatan kerja terendah berada di Provinsi Papua Barat yang hanya 445 ribu jiwa. </p> 
 						</div>
 						<div class="col-lg-12 p-0">
 							<button for="r1" class="about-checked" value="1"></button>

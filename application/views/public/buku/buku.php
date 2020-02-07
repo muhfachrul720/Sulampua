@@ -15,12 +15,12 @@
             </div>
         </form>
             <table class="table-book" style="width:100%;">
-                <tr>
                     <?php foreach($buku as $b) {?>
+                    <tr>
                         <td width="90%"><?= $b->nname?></td>
                         <td style="text-align:center"><a target="_blank" href="<?= $b->nlink?>" class="btn btn-sm btn-primary">Links</a></td>
+                    </tr>
                     <?php };?>
-                </tr>
             </table>
             <?= $this->pagination->create_links()?>
         </div>
